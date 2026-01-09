@@ -1,0 +1,8 @@
+{
+  "enabled": false,
+  "smtp_server": "smtp.gmail.com",
+  "smtp_port": 587,
+  "sender_email": "",
+  "sender_password": "",
+  "recipient_email": "langjam350@gmail.com"
+}

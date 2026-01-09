@@ -1,0 +1,12 @@
+ARIES:Fire;Cardinal;Mars;Independent;pioneering;energetic;impulsive;courageous;competitive;leadership;new beginnings
+TAURUS:Earth;Fixed;Venus;Stable;practical;sensual;stubborn;reliable;materialistic;patient;security-oriented
+GEMINI:Air;Mutable;Mercury;Curious;communicative;versatile;restless;intellectual;social;adaptable;dual-natured
+CANCER:Water;Cardinal;Moon;Nurturing;emotional;protective;moody;intuitive;home-loving;sensitive;caring
+LEO:Fire;Fixed;Sun;Creative;dramatic;generous;proud;confident;attention-seeking;warm-hearted;loyal
+VIRGO:Earth;Mutable;Mercury;Analytical;practical;perfectionist;helpful;detail-oriented;health-conscious;critical
+LIBRA:Air;Cardinal;Venus;Harmonious;diplomatic;indecisive;social;aesthetic;justice-seeking;partnership-oriented
+SCORPIO:Water;Fixed;Pluto;Intense;mysterious;transformative;powerful;secretive;passionate;regenerative
+SAGITTARIUS:Fire;Mutable;Jupiter;Adventurous;philosophical;optimistic;freedom-loving;truth-seeking;expansive
+CAPRICORN:Earth;Cardinal;Saturn;Ambitious;practical;disciplined;authoritative;status-conscious;responsible
+AQUARIUS:Air;Fixed;Uranus;Independent;innovative;humanitarian;detached;rebellious;futuristic;group-oriented
+PISCES:Water;Mutable;Neptune;Compassionate;intuitive;dreamy;escapist;spiritual;artistic;empathetic

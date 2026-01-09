@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="980" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .chart-bg { fill: #1a1a2e; }
+    .zodiac-line { stroke: #16213e; stroke-width: 2; fill: none; }
+    .house-line { stroke: #4a4a6a; stroke-width: 1; fill: none; }
+    .sign-text { fill: #ffffff; font-family: Arial, sans-serif; font-size: 20px; text-anchor: middle; dominant-baseline: central; }
+    .planet-text { font-family: Arial, sans-serif; font-size: 18px; text-anchor: middle; dominant-baseline: central; }
+    .title { fill: #ffffff; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; text-anchor: middle; }
+    .legend { fill: #ffffff; font-family: Arial, sans-serif; font-size: 12px; }
+    .aspect-line { stroke: #888888; stroke-width: 1; opacity: 0.6; }
+</style>
+
+<!-- Background -->
+<rect class="chart-bg" width="800" height="980"/>
+
+<!-- Outer circle -->
+<circle cx="400" cy="400" r="350"
+        fill="none" stroke="#16213e" stroke-width="3"/>
+
+<!-- Inner circle -->
+<circle cx="400" cy="400" r="280"
+        fill="none" stroke="#16213e" stroke-width="2"/>
+
+<text x="400" y="30" class="title">Transit Chart - Tuesday, October 14, 2025</text>
+<line class="zodiac-line" x1="400.0" y1="120.0" x2="400.0" y2="50.0"/>
+<text class="sign-text" x="481.52799920729404" y="95.7333647189435">♈</text>
+<line class="zodiac-line" x1="540.0" y1="157.5128869403572" x2="575.0" y2="96.8911086754465"/>
+<text class="sign-text" x="622.7386360737624" y="177.26136392623752">♉</text>
+<line class="zodiac-line" x1="642.4871130596429" y1="260.0" x2="703.1088913245535" y2="225.00000000000003"/>
+<text class="sign-text" x="704.2666352810566" y="318.47200079270596">♊</text>
+<line class="zodiac-line" x1="680.0" y1="400.0" x2="750.0" y2="400.0"/>
+<text class="sign-text" x="704.2666352810566" y="481.52799920729404">♋</text>
+<line class="zodiac-line" x1="642.4871130596429" y1="540.0" x2="703.1088913245535" y2="575.0"/>
+<text class="sign-text" x="622.7386360737624" y="622.7386360737624">♌</text>
+<line class="zodiac-line" x1="540.0" y1="642.4871130596428" x2="575.0" y2="703.1088913245535"/>
+<text class="sign-text" x="481.52799920729404" y="704.2666352810566">♍</text>
+<line class="zodiac-line" x1="400.0" y1="680.0" x2="400.0" y2="750.0"/>
+<text class="sign-text" x="318.4720007927059" y="704.2666352810566">♎</text>
+<line class="zodiac-line" x1="260.00000000000006" y1="642.4871130596429" x2="225.00000000000009" y2="703.1088913245535"/>
+<text class="sign-text" x="177.26136392623755" y="622.7386360737624">♏</text>
+<line class="zodiac-line" x1="157.51288694035716" y1="540.0" x2="96.89110867544645" y2="575.0"/>
+<text class="sign-text" x="95.7333647189435" y="481.5279992072941">♐</text>
+<line class="zodiac-line" x1="120.0" y1="400.00000000000006" x2="50.0" y2="400.00000000000006"/>
+<text class="sign-text" x="95.7333647189435" y="318.47200079270596">♑</text>
+<line class="zodiac-line" x1="157.5128869403572" y1="260.0" x2="96.8911086754465" y2="224.99999999999997"/>
+<text class="sign-text" x="177.2613639262375" y="177.26136392623755">♒</text>
+<line class="zodiac-line" x1="259.9999999999999" y1="157.51288694035722" x2="224.99999999999986" y2="96.8911086754465"/>
+<text class="sign-text" x="318.472000792706" y="95.7333647189435">♓</text>
+<line class="house-line" x1="400.0" y1="200.0" x2="400.0" y2="120.0"/>
+<text class="sign-text" x="462.116570824605" y="168.1778016906236" style="font-size: 14px; fill: #888888;">1</text>
+<line class="house-line" x1="500.0" y1="226.79491924311228" x2="540.0" y2="157.5128869403572"/>
+<text class="sign-text" x="569.7056274847714" y="230.2943725152286" style="font-size: 14px; fill: #888888;">2</text>
+<line class="house-line" x1="573.2050807568878" y1="300.0" x2="642.4871130596429" y2="260.0"/>
+<text class="sign-text" x="631.8221983093764" y="337.883429175395" style="font-size: 14px; fill: #888888;">3</text>
+<line class="house-line" x1="600.0" y1="400.0" x2="680.0" y2="400.0"/>
+<text class="sign-text" x="631.8221983093764" y="462.116570824605" style="font-size: 14px; fill: #888888;">4</text>
+<line class="house-line" x1="573.2050807568878" y1="500.0" x2="642.4871130596429" y2="540.0"/>
+<text class="sign-text" x="569.7056274847714" y="569.7056274847714" style="font-size: 14px; fill: #888888;">5</text>
+<line class="house-line" x1="500.0" y1="573.2050807568877" x2="540.0" y2="642.4871130596428"/>
+<text class="sign-text" x="462.116570824605" y="631.8221983093764" style="font-size: 14px; fill: #888888;">6</text>
+<line class="house-line" x1="400.0" y1="600.0" x2="400.0" y2="680.0"/>
+<text class="sign-text" x="337.883429175395" y="631.8221983093764" style="font-size: 14px; fill: #888888;">7</text>
+<line class="house-line" x1="300.00000000000006" y1="573.2050807568878" x2="260.00000000000006" y2="642.4871130596429"/>
+<text class="sign-text" x="230.29437251522862" y="569.7056274847714" style="font-size: 14px; fill: #888888;">8</text>
+<line class="house-line" x1="226.79491924311225" y1="500.0" x2="157.51288694035716" y2="540.0"/>
+<text class="sign-text" x="168.17780169062362" y="462.11657082460505" style="font-size: 14px; fill: #888888;">9</text>
+<line class="house-line" x1="200.0" y1="400.0" x2="120.0" y2="400.00000000000006"/>
+<text class="sign-text" x="168.1778016906236" y="337.883429175395" style="font-size: 14px; fill: #888888;">10</text>
+<line class="house-line" x1="226.79491924311228" y1="300.0" x2="157.5128869403572" y2="260.0"/>
+<text class="sign-text" x="230.29437251522856" y="230.29437251522862" style="font-size: 14px; fill: #888888;">11</text>
+<line class="house-line" x1="299.9999999999999" y1="226.7949192431123" x2="259.9999999999999" y2="157.51288694035722"/>
+<text class="sign-text" x="337.88342917539507" y="168.1778016906236" style="font-size: 14px; fill: #888888;">12</text>
+<text class="planet-text" x="310.26246824822056" y="633.3391852970658" fill="#FFD700">☉</text>
+<text x="301.2887150730426" y="656.6731038267724" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">21°02'</text>
+<text class="planet-text" x="615.8377489703811" y="526.1509655904335" fill="#C0C0C0">☽</text>
+<text x="637.4215238674192" y="538.7660621494769" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">0°18'</text>
+<text class="planet-text" x="235.992930132394" y="588.6840773182576" fill="#FFA500">☿</text>
+<text x="219.5922231456334" y="607.5524850500833" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">10°59'</text>
+<text class="planet-text" x="398.26674195564" y="649.9939915609007" fill="#90EE90">♀</text>
+<text x="398.093416151204" y="674.9933907169907" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">0°23'</text>
+<text class="planet-text" x="223.8796893322121" y="577.4306517214033" fill="#FF6347">♂</text>
+<text x="206.26765826543334" y="595.1737168935435" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">14°47'</text>
+<text class="planet-text" x="629.2260148726712" y="499.77692170834877" fill="#4169E1">♃</text>
+<text x="652.1486163599383" y="509.75461387918364" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">23°31'</text>
+<text class="planet-text" x="384.4292194336583" y="150.48536958215288" fill="#8B4513">♄</text>
+<text x="382.87214137702415" y="125.5339065403682" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">26°25'</text>
+<text class="planet-text" x="617.6165649734851" y="276.94297805837743" fill="#40E0D0">♅</text>
+<text x="639.3782214708335" y="264.6372758642152" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">0°30'</text>
+<text class="planet-text" x="399.2666230576593" y="150.0010756857933" fill="#4682B4">♆</text>
+<text x="399.19328536342516" y="125.00118325437262" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">29°49'</text>
+<text class="planet-text" x="185.721236667751" y="271.21874521188255" fill="#800080">♇</text>
+<text x="164.29336033452608" y="258.3406197330708" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">1°00'</text>
+<line class="aspect-line" x1="310.26246824822056" y1="633.3391852970658" x2="629.2260148726712" y2="499.77692170834877" stroke="#ff9f43" stroke-width="3" stroke-dasharray="5,5" opacity="0.8"/>
+<circle cx="469.74424156044586" cy="566.5580535027073" r="8" fill="#1a1a2e" stroke="#ff9f43" stroke-width="1" opacity="0.9"/>
+<text x="469.74424156044586" y="566.5580535027073" fill="#ff9f43" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">□</text>
+<line class="aspect-line" x1="615.8377489703811" y1="526.1509655904335" x2="398.26674195564" y2="649.9939915609007" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+<circle cx="507.05224546301054" cy="588.0724785756671" r="8" fill="#1a1a2e" stroke="#4ecdc4" stroke-width="1" opacity="0.9"/>
+<text x="507.05224546301054" y="588.0724785756671" fill="#4ecdc4" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">*</text>
+<line class="aspect-line" x1="615.8377489703811" y1="526.1509655904335" x2="629.2260148726712" y2="499.77692170834877" stroke="#ff6b6b" stroke-width="3" opacity="0.7"/>
+<circle cx="622.5318819215261" cy="512.9639436493911" r="8" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1" opacity="0.9"/>
+<text x="622.5318819215261" y="512.9639436493911" fill="#ff6b6b" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">♂</text>
+<line class="aspect-line" x1="615.8377489703811" y1="526.1509655904335" x2="384.4292194336583" y2="150.48536958215288" stroke="#6c5ce7" stroke-width="2" opacity="0.7"/>
+<circle cx="500.1334842020197" cy="338.3181675862932" r="8" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="1" opacity="0.9"/>
+<text x="500.1334842020197" y="338.3181675862932" fill="#6c5ce7" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">△</text>
+<line class="aspect-line" x1="615.8377489703811" y1="526.1509655904335" x2="617.6165649734851" y2="276.94297805837743" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+<circle cx="616.727156971933" cy="401.5469718244055" r="8" fill="#1a1a2e" stroke="#4ecdc4" stroke-width="1" opacity="0.9"/>
+<text x="616.727156971933" y="401.5469718244055" fill="#4ecdc4" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">*</text>
+<line class="aspect-line" x1="615.8377489703811" y1="526.1509655904335" x2="399.2666230576593" y2="150.0010756857933" stroke="#6c5ce7" stroke-width="2" opacity="0.7"/>
+<circle cx="507.5521860140202" cy="338.0760206381134" r="8" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="1" opacity="0.9"/>
+<text x="507.5521860140202" y="338.0760206381134" fill="#6c5ce7" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">△</text>
+<line class="aspect-line" x1="615.8377489703811" y1="526.1509655904335" x2="185.721236667751" y2="271.21874521188255" stroke="#fd79a8" stroke-width="3" stroke-dasharray="5,5" opacity="0.8"/>
+<circle cx="400.77949281906604" cy="398.6848554011581" r="8" fill="#1a1a2e" stroke="#fd79a8" stroke-width="1" opacity="0.9"/>
+<text x="400.77949281906604" y="398.6848554011581" fill="#fd79a8" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">☍</text>
+<line class="aspect-line" x1="235.992930132394" y1="588.6840773182576" x2="223.8796893322121" y2="577.4306517214033" stroke="#ff6b6b" stroke-width="3" opacity="0.7"/>
+<circle cx="229.93630973230307" cy="583.0573645198303" r="8" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1" opacity="0.9"/>
+<text x="229.93630973230307" y="583.0573645198303" fill="#ff6b6b" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">♂</text>
+<line class="aspect-line" x1="398.26674195564" y1="649.9939915609007" x2="384.4292194336583" y2="150.48536958215288" stroke="#fd79a8" stroke-width="3" stroke-dasharray="5,5" opacity="0.8"/>
+<circle cx="391.34798069464915" cy="400.2396805715268" r="8" fill="#1a1a2e" stroke="#fd79a8" stroke-width="1" opacity="0.9"/>
+<text x="391.34798069464915" y="400.2396805715268" fill="#fd79a8" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">☍</text>
+<line class="aspect-line" x1="398.26674195564" y1="649.9939915609007" x2="617.6165649734851" y2="276.94297805837743" stroke="#6c5ce7" stroke-width="2" opacity="0.7"/>
+<circle cx="507.94165346456253" cy="463.46848480963905" r="8" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="1" opacity="0.9"/>
+<text x="507.94165346456253" y="463.46848480963905" fill="#6c5ce7" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">△</text>
+<line class="aspect-line" x1="398.26674195564" y1="649.9939915609007" x2="399.2666230576593" y2="150.0010756857933" stroke="#fd79a8" stroke-width="3" stroke-dasharray="5,5" opacity="0.8"/>
+<circle cx="398.76668250664966" cy="399.99753362334695" r="8" fill="#1a1a2e" stroke="#fd79a8" stroke-width="1" opacity="0.9"/>
+<text x="398.76668250664966" y="399.99753362334695" fill="#fd79a8" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">☍</text>
+<line class="aspect-line" x1="398.26674195564" y1="649.9939915609007" x2="185.721236667751" y2="271.21874521188255" stroke="#6c5ce7" stroke-width="2" opacity="0.7"/>
+<circle cx="291.9939893116955" cy="460.60636838639164" r="8" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="1" opacity="0.9"/>
+<text x="291.9939893116955" y="460.60636838639164" fill="#6c5ce7" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">△</text>
+<line class="aspect-line" x1="629.2260148726712" y1="499.77692170834877" x2="384.4292194336583" y2="150.48536958215288" stroke="#6c5ce7" stroke-width="2" opacity="0.7"/>
+<circle cx="506.82761715316474" cy="325.13114564525085" r="8" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="1" opacity="0.9"/>
+<text x="506.82761715316474" y="325.13114564525085" fill="#6c5ce7" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">△</text>
+<line class="aspect-line" x1="629.2260148726712" y1="499.77692170834877" x2="399.2666230576593" y2="150.0010756857933" stroke="#6c5ce7" stroke-width="2" opacity="0.7"/>
+<circle cx="514.2463189651652" cy="324.88899869707103" r="8" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="1" opacity="0.9"/>
+<text x="514.2463189651652" y="324.88899869707103" fill="#6c5ce7" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">△</text>
+<line class="aspect-line" x1="629.2260148726712" y1="499.77692170834877" x2="185.721236667751" y2="271.21874521188255" stroke="#fd79a8" stroke-width="3" stroke-dasharray="5,5" opacity="0.8"/>
+<circle cx="407.4736257702111" cy="385.49783346011566" r="8" fill="#1a1a2e" stroke="#fd79a8" stroke-width="1" opacity="0.9"/>
+<text x="407.4736257702111" y="385.49783346011566" fill="#fd79a8" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">☍</text>
+<line class="aspect-line" x1="384.4292194336583" y1="150.48536958215288" x2="617.6165649734851" y2="276.94297805837743" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+<circle cx="501.0228922035717" cy="213.71417382026516" r="8" fill="#1a1a2e" stroke="#4ecdc4" stroke-width="1" opacity="0.9"/>
+<text x="501.0228922035717" y="213.71417382026516" fill="#4ecdc4" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">*</text>
+<line class="aspect-line" x1="384.4292194336583" y1="150.48536958215288" x2="399.2666230576593" y2="150.0010756857933" stroke="#ff6b6b" stroke-width="3" opacity="0.7"/>
+<circle cx="391.84792124565877" cy="150.2432226339731" r="8" fill="#1a1a2e" stroke="#ff6b6b" stroke-width="1" opacity="0.9"/>
+<text x="391.84792124565877" y="150.2432226339731" fill="#ff6b6b" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">♂</text>
+<line class="aspect-line" x1="384.4292194336583" y1="150.48536958215288" x2="185.721236667751" y2="271.21874521188255" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+<circle cx="285.07522805070465" cy="210.85205739701772" r="8" fill="#1a1a2e" stroke="#4ecdc4" stroke-width="1" opacity="0.9"/>
+<text x="285.07522805070465" y="210.85205739701772" fill="#4ecdc4" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">*</text>
+<line class="aspect-line" x1="617.6165649734851" y1="276.94297805837743" x2="399.2666230576593" y2="150.0010756857933" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+<circle cx="508.44159401557215" cy="213.47202687208537" r="8" fill="#1a1a2e" stroke="#4ecdc4" stroke-width="1" opacity="0.9"/>
+<text x="508.44159401557215" y="213.47202687208537" fill="#4ecdc4" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">*</text>
+<line class="aspect-line" x1="617.6165649734851" y1="276.94297805837743" x2="185.721236667751" y2="271.21874521188255" stroke="#6c5ce7" stroke-width="2" opacity="0.7"/>
+<circle cx="401.66890082061803" cy="274.08086163512996" r="8" fill="#1a1a2e" stroke="#6c5ce7" stroke-width="1" opacity="0.9"/>
+<text x="401.66890082061803" y="274.08086163512996" fill="#6c5ce7" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">△</text>
+<line class="aspect-line" x1="399.2666230576593" y1="150.0010756857933" x2="185.721236667751" y2="271.21874521188255" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+<circle cx="292.49392986270516" cy="210.60991044883792" r="8" fill="#1a1a2e" stroke="#4ecdc4" stroke-width="1" opacity="0.9"/>
+<text x="292.49392986270516" y="210.60991044883792" fill="#4ecdc4" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">*</text>
+<!-- Found 21 major aspects -->
+<text class="legend" x="20" y="820">Legend:</text>
+<text class="legend" x="20" y="840" fill="#FFD700">☉ SUN</text>
+<text class="legend" x="120" y="840" fill="#C0C0C0">☽ MOON</text>
+<text class="legend" x="220" y="840" fill="#FFA500">☿ MERCURY</text>
+<text class="legend" x="320" y="840" fill="#90EE90">♀ VENUS</text>
+<text class="legend" x="420" y="840" fill="#FF6347">♂ MARS</text>
+<text class="legend" x="20" y="860" fill="#4169E1">♃ JUPITER</text>
+<text class="legend" x="120" y="860" fill="#8B4513">♄ SATURN</text>
+<text class="legend" x="220" y="860" fill="#40E0D0">♅ URANUS</text>
+<text class="legend" x="320" y="860" fill="#4682B4">♆ NEPTUNE</text>
+<text class="legend" x="420" y="860" fill="#800080">♇ PLUTO</text>
+<text class="legend" x="20" y="885">Zodiac Signs:</text>
+<text class="legend" x="20" y="900" fill="#ffffff">♈ Aries</text>
+<text class="legend" x="140" y="900" fill="#ffffff">♉ Taurus</text>
+<text class="legend" x="260" y="900" fill="#ffffff">♊ Gemini</text>
+<text class="legend" x="380" y="900" fill="#ffffff">♋ Cancer</text>
+<text class="legend" x="500" y="900" fill="#ffffff">♌ Leo</text>
+<text class="legend" x="620" y="900" fill="#ffffff">♍ Virgo</text>
+<text class="legend" x="20" y="915" fill="#ffffff">♎ Libra</text>
+<text class="legend" x="140" y="915" fill="#ffffff">♏ Scorpio</text>
+<text class="legend" x="260" y="915" fill="#ffffff">♐ Sagittarius</text>
+<text class="legend" x="380" y="915" fill="#ffffff">♑ Capricorn</text>
+<text class="legend" x="500" y="915" fill="#ffffff">♒ Aquarius</text>
+<text class="legend" x="620" y="915" fill="#ffffff">♓ Pisces</text>
+<text class="legend" x="20" y="940">Aspects (with symbols):</text>
+<line x1="20" y1="955" x2="40" y2="955" stroke="#ff6b6b" stroke-width="2"/>
+<text class="legend" x="45" y="959">Conjunction ♂</text>
+<line x1="160" y1="955" x2="180" y2="955" stroke="#4ecdc4" stroke-width="2"/>
+<text class="legend" x="185" y="959">Sextile *</text>
+<line x1="300" y1="955" x2="320" y2="955" stroke="#ff9f43" stroke-width="2" stroke-dasharray="3,3"/>
+<text class="legend" x="325" y="959">Square □</text>
+<line x1="440" y1="955" x2="460" y2="955" stroke="#6c5ce7" stroke-width="2"/>
+<text class="legend" x="465" y="959">Trine △</text>
+<line x1="580" y1="955" x2="600" y2="955" stroke="#fd79a8" stroke-width="2" stroke-dasharray="3,3"/>
+<text class="legend" x="605" y="959">Opposition ☍</text>
+<text class="legend" x="20" y="980" style="font-size: 10px; fill: #cccccc;">Note: Solid lines = Harmonious aspects, Dashed lines = Challenging aspects</text>
+</svg>

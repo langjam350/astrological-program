@@ -1,0 +1,12 @@
+HOUSE_1:Self;identity;appearance;first impressions;personality;physical body;how others see you;new beginnings
+HOUSE_2:Money;possessions;values;self-worth;material resources;income;talents;what you own;security
+HOUSE_3:Communication;siblings;short trips;learning;neighbors;local environment;daily routines;mental processes
+HOUSE_4:Home;family;roots;mother;private life;emotional foundation;real estate;endings;ancestry
+HOUSE_5:Creativity;children;romance;fun;hobbies;self-expression;speculation;pleasure;entertainment
+HOUSE_6:Work;health;daily routines;service;employees;pets;habits;diet;practical matters
+HOUSE_7:Partnerships;marriage;open enemies;contracts;cooperation;what you seek in others;balance
+HOUSE_8:Shared resources;death;transformation;occult;other peoples money;intimacy;regeneration;mysteries
+HOUSE_9:Higher education;philosophy;religion;foreign travel;publishing;law;expansion of mind;wisdom
+HOUSE_10:Career;reputation;public image;father;authority;achievements;status;life direction;honor
+HOUSE_11:Friends;groups;hopes;wishes;humanitarian causes;social networks;future goals;community
+HOUSE_12:Subconscious;hidden enemies;spirituality;sacrifice;institutions;secrets;karma;past lives;solitude

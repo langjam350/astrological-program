@@ -1,0 +1,18 @@
+MAJOR_CONJUNCTIONS:Jupiter Saturn;Economic restructuring;major political changes;generational shifts;foundation of new systems;occurs every 20 years
+OUTER_PLANET_TRANSITS:Pluto aspects;transformation of power structures;revelation of hidden truths;generational trauma healing;revolutionary changes
+ECLIPSE_PATTERNS:Solar lunar eclipses;major beginnings and endings;fated events;collective awakening;destiny acceleration;karmic completion
+MARS_RETROGRADE:Warfare patterns;energy redirection;past conflicts resurface;strategy revision;military tensions;action delays
+MERCURY_RETROGRADE:Communication breakdowns;technology failures;travel disruptions;contract revisions;information errors;past issues resurface
+VENUS_RETROGRADE:Relationship reevaluation;financial market volatility;artistic revival;love from the past;value system changes
+
+HISTORICAL_CYCLES:Saturn Return;major life restructuring;authority challenges;responsibility acceptance;maturation process;every 28-30 years
+GENERATIONAL_ASPECTS:Uranus Pluto;revolution and transformation;technological breakthroughs;social upheaval;freedom movements;every 84 years
+CULTURAL_SHIFTS:Neptune transits;spiritual awakenings;artistic movements;illusion dissolution;compassion expansion;mass deception possible
+
+WORLD_EVENT_PATTERNS:Cardinal Grand Cross;global tensions;structural changes;leadership crises;major turning points;international conflicts
+T_SQUARE_DYNAMICS:Focused tension;crisis catalyst;breakthrough potential;concentrated energy;problem solving;decisive action needed
+GRAND_TRINE_HARMONY:Beneficial flow;creative breakthroughs;peaceful resolutions;abundant manifestation;easy progress;natural talents
+
+ECONOMIC_INDICATORS:Jupiter Saturn cycle;boom and bust patterns;regulatory changes;institutional restructuring;wealth distribution shifts
+TECHNOLOGICAL_BREAKTHROUGHS:Uranus aspects;innovation acceleration;scientific discoveries;communication revolution;unexpected inventions
+SPIRITUAL_MOVEMENTS:Neptune Pluto aspects;consciousness evolution;mystical experiences;collective awakening;artistic renaissance;healing modalities

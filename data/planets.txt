@@ -1,0 +1,10 @@
+SUN:Life force;vitality;ego;self-expression;leadership;father;authority;creativity;confidence;solar energy
+MOON:Emotions;instincts;subconscious;mother;nurturing;cycles;intuition;receptivity;past;memory
+MERCURY:Communication;intellect;learning;travel;siblings;nervous system;adaptability;quick thinking;commerce
+VENUS:Love;beauty;harmony;relationships;money;pleasure;arts;attraction;values;femininity
+MARS:Action;energy;desire;courage;conflict;masculinity;drive;passion;war;initiative
+JUPITER:Expansion;wisdom;growth;philosophy;higher learning;optimism;luck;abundance;spirituality;teacher
+SATURN:Discipline;responsibility;limitations;structure;authority;time;karma;lessons;maturity;endurance
+URANUS:Innovation;revolution;freedom;originality;technology;rebellion;sudden change;genius;independence
+NEPTUNE:Spirituality;illusion;dreams;compassion;mysticism;confusion;deception;transcendence;creativity
+PLUTO:Transformation;death and rebirth;power;intensity;regeneration;hidden depths;elimination;evolution

@@ -1,0 +1,7 @@
+# Astrological Program Requirements
+
+# Astronomical calculations using JPL ephemeris
+skyfield>=1.48
+
+# HTTP requests for LLM enhancement
+requests>=2.31.0

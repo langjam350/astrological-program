@@ -1,0 +1,8 @@
+{
+  "windows_notifications": true,
+  "desktop_shortcut": true,
+  "copy_to_folders": [],
+  "auto_open_folder": false,
+  "cleanup_old_reports": true,
+  "keep_reports_days": 30
+}

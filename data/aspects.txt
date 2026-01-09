@@ -1,0 +1,5 @@
+CONJUNCTION:0;8;Union;blending;emphasis;intensity;new beginnings;focus;amplification
+SEXTILE:60;6;Opportunity;harmony;cooperation;talent;ease;support;creative potential
+SQUARE:90;8;Tension;challenge;conflict;dynamic energy;obstacles;growth through struggle
+TRINE:120;8;Flow;ease;natural talent;good fortune;harmony;effortless expression
+OPPOSITION:180;8;Awareness;balance;projection;culmination;full expression;polarity;relationship dynamics

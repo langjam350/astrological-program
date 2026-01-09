@@ -1,0 +1,30 @@
+SUN_ARIES:Leadership initiatives;new project launches;competitive activities;physical exercise;pioneering ventures;independent action
+SUN_TAURUS:Financial planning;gardening;cooking;art creation;luxury experiences;steady building;sensual pleasures
+SUN_GEMINI:Communication;writing;learning;networking;short travel;information gathering;social connections
+SUN_CANCER:Family time;home improvement;emotional healing;nurturing activities;cooking;memory preservation
+SUN_LEO:Creative expression;performance;leadership;entertainment;children activities;generous giving;recognition seeking
+SUN_VIRGO:Organization;health focus;detailed work;service activities;efficiency improvements;analytical tasks
+
+MOON_PHASES:New Moon;intention setting;new beginnings;planning;meditation;goal visualization;fresh starts
+MOON_PHASES:Waxing Moon;building energy;taking action;momentum gathering;skill development;relationship building
+MOON_PHASES:Full Moon;completion;celebration;manifestation;emotional release;gratitude practice;culmination
+MOON_PHASES:Waning Moon;release;letting go;forgiveness;cleansing;reflection;preparation
+
+VENUS_ACTIVITIES:Relationships;social gatherings;artistic pursuits;beauty treatments;luxury purchases;romantic dates;harmony creation
+MARS_ACTIVITIES:Exercise;competition;assertive action;conflict resolution;goal pursuit;physical challenges;courage building
+MERCURY_ACTIVITIES:Communication;writing;studying;planning;technology use;contract signing;information processing
+JUPITER_ACTIVITIES:Learning;teaching;travel;legal matters;philosophical discussions;expansion activities;optimistic planning
+
+AVOID_MERCURY_RETROGRADE:Major purchases;contract signing;technology upgrades;important communications;travel planning;new launches
+AVOID_MARS_RETROGRADE:Confrontations;aggressive actions;major physical exertion;warfare;impulsive decisions;energy depletion
+AVOID_VENUS_RETROGRADE:New relationships;major beauty changes;financial investments;artistic debuts;luxury purchases
+
+IDEAL_TIMING:Morning Sun hours;creative work;leadership activities;vitality focused tasks;new beginnings
+IDEAL_TIMING:Afternoon Moon hours;emotional work;intuitive activities;family time;nurturing tasks;receptive practices
+IDEAL_TIMING:Evening Venus hours;social activities;artistic work;relationship focus;beauty enhancement;pleasure seeking
+IDEAL_TIMING:Night Mars hours;physical exercise;passionate activities;bold actions;competitive endeavors
+
+SEASONAL_ACTIVITIES:Spring Equinox;new projects;fresh starts;planting;cleansing;energy renewal;goal setting
+SEASONAL_ACTIVITIES:Summer Solstice;peak activity;celebration;abundance;creative expression;social gathering;vitality
+SEASONAL_ACTIVITIES:Autumn Equinox;harvest;completion;balance;preparation;gratitude;relationship evaluation
+SEASONAL_ACTIVITIES:Winter Solstice;reflection;rest;planning;inner work;family time;spiritual practice
