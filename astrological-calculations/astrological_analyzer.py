@@ -28,7 +28,7 @@ except ImportError:
     print("Warning: Skyfield not available - falling back to simplified calculations")
 
 try:
-    from llm_enhancer import LocalLLMEnhancer, LLMConfigManager
+    from llm_enhancer import LLMEnhancer, LLMConfigManager
     LLM_AVAILABLE = True
 except ImportError:
     LLM_AVAILABLE = False
@@ -608,7 +608,7 @@ class AstrologicalAnalyzer:
 class WeeklyAnalyzer:
     """Generates weekly astrological reports."""
 
-    def __init__(self, calculator: AstrologicalCalculator, analyzer: AstrologicalAnalyzer):
+    def __init__(self, calculator: AstrologicalCalculator, analyzer: AstrologicalAnalyzer, ai_provider: str = None):
         """Initialize weekly analyzer with calculator and analyzer instances."""
         self.calculator = calculator
         self.analyzer = analyzer
@@ -618,14 +618,17 @@ class WeeklyAnalyzer:
         if LLM_AVAILABLE:
             try:
                 config_manager = LLMConfigManager()
-                self.llm_enhancer = LocalLLMEnhancer(config_manager.get_config())
-                if self.llm_enhancer.is_available():
-                    print("✨ LLM enhancement enabled - reports will be user-friendly!")
-                    # Pre-warm the model for better performance
-                    self.llm_enhancer.warm_model()
+                provider = ai_provider or config_manager.get_config().default_provider
+                if provider and provider != "none":
+                    self.llm_enhancer = LLMEnhancer(config_manager.get_config(), provider)
+                    if self.llm_enhancer.is_available():
+                        print(f"✨ LLM enhancement enabled ({provider}) - reports will be user-friendly!")
+                        self.llm_enhancer.warm_model()
+                    else:
+                        print(f"📝 {provider} configured but not available - using standard reports")
+                        self.llm_enhancer = None
                 else:
-                    print("📝 LLM configured but not available - using standard reports")
-                    self.llm_enhancer = None
+                    print("📝 No AI provider selected - using standard reports")
             except Exception as e:
                 print(f"LLM initialization failed: {e}")
                 self.llm_enhancer = None
@@ -1195,15 +1198,17 @@ class WeeklyAnalyzer:
 
 def main():
     """Main program entry point."""
-    if len(sys.argv) != 5:
-        print("Usage: python astrological_analyzer.py BIRTH_DATE BIRTH_TIME BIRTH_LOCATION CURRENT_LOCATION")
-        print("Example: python astrological_analyzer.py 1990-05-15 14:30 'New York;NY' 'Los Angeles;CA'")
+    if len(sys.argv) < 5:
+        print("Usage: python astrological_analyzer.py BIRTH_DATE BIRTH_TIME BIRTH_LOCATION CURRENT_LOCATION [AI_PROVIDER]")
+        print("Example: python astrological_analyzer.py 1990-05-15 14:30 'New York;NY' 'Los Angeles;CA' claude")
+        print("AI_PROVIDER options: local, openai, claude, gemini, none (default: from config)")
         sys.exit(1)
 
     birth_date = sys.argv[1]
     birth_time = sys.argv[2]
     birth_location = sys.argv[3]
     current_location = sys.argv[4]
+    ai_provider = sys.argv[5] if len(sys.argv) > 5 else None
 
     try:
         # Get current date and time
@@ -1216,7 +1221,7 @@ def main():
         analyzer = AstrologicalAnalyzer(calculator)
 
         # Generate weekly reports
-        weekly_analyzer = WeeklyAnalyzer(calculator, analyzer)
+        weekly_analyzer = WeeklyAnalyzer(calculator, analyzer, ai_provider)
         report_folder = weekly_analyzer.generate_weekly_reports(
             birth_date, birth_time, birth_location, current_location
         )
