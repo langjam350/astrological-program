@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="1060" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .bg { fill: #1a1a2e; }
+    .ring { fill: none; stroke: #2a2a4e; }
+    .zodiac-div { stroke: #3a3a5e; stroke-width: 1.5; }
+    .sign-text { fill: #ffffff; font-family: Arial, sans-serif; font-size: 18px;
+                  text-anchor: middle; dominant-baseline: central; }
+    .planet { font-family: Arial, sans-serif; font-size: 16px;
+              text-anchor: middle; dominant-baseline: central; font-weight: bold; }
+    .planet-label { font-family: Arial, sans-serif; font-size: 9px;
+                     text-anchor: middle; dominant-baseline: central; fill: #aaaaaa; }
+    .degree-text { font-family: Arial, sans-serif; font-size: 8px;
+                    text-anchor: middle; dominant-baseline: central; fill: #888888; }
+    .title { fill: #ffffff; font-family: Arial, sans-serif; font-size: 22px;
+              font-weight: bold; text-anchor: middle; }
+    .ring-label { fill: #666666; font-family: Arial, sans-serif; font-size: 10px;
+                   font-weight: bold; text-anchor: middle; dominant-baseline: central; }
+    .tick { stroke-width: 1; }
+    .aspect-line { stroke-width: 1.2; opacity: 0.7; }
+    .legend { fill: #cccccc; font-family: Arial, sans-serif; font-size: 11px;
+              dominant-baseline: central; }
+    .aspect-sym { font-family: Arial, sans-serif; font-size: 14px;
+                   text-anchor: middle; dominant-baseline: central; font-weight: bold; }
+</style>
+
+<!-- Background -->
+<rect class="bg" width="900" height="1060"/>
+
+<!-- Title -->
+<text class="title" x="450.0" y="28">Natal-Transit Bi-Wheel - Monday, April 06, 2026</text>
+
+<circle cx="450.0" cy="450.0" r="400" class="ring" stroke-width="2.5"/>
+<circle cx="450.0" cy="450.0" r="340" class="ring" stroke-width="2"/>
+<circle cx="450.0" cy="450.0" r="270" class="ring" stroke-width="1.5"/>
+<line class="zodiac-div" x1="450.0" y1="110.0" x2="450.0" y2="50.0"/>
+<text class="sign-text" x="545.7630466879327" y="92.60744427304473">♈</text>
+<line class="zodiac-div" x1="620.0" y1="155.55136271329087" x2="650.0" y2="103.58983848622455"/>
+<text class="sign-text" x="711.6295090390227" y="188.3704909609774">♉</text>
+<line class="zodiac-div" x1="744.4486372867092" y1="280.0" x2="796.4101615137755" y2="250.00000000000003"/>
+<text class="sign-text" x="807.3925557269553" y="354.2369533120673">♊</text>
+<line class="zodiac-div" x1="790.0" y1="450.0" x2="850.0" y2="450.0"/>
+<text class="sign-text" x="807.3925557269553" y="545.7630466879327">♋</text>
+<line class="zodiac-div" x1="744.4486372867092" y1="620.0" x2="796.4101615137755" y2="650.0"/>
+<text class="sign-text" x="711.6295090390227" y="711.6295090390227">♌</text>
+<line class="zodiac-div" x1="620.0" y1="744.4486372867091" x2="650.0" y2="796.4101615137754"/>
+<text class="sign-text" x="545.7630466879327" y="807.3925557269553">♍</text>
+<line class="zodiac-div" x1="450.0" y1="790.0" x2="450.0" y2="850.0"/>
+<text class="sign-text" x="354.23695331206727" y="807.3925557269553">♎</text>
+<line class="zodiac-div" x1="280.0000000000001" y1="744.4486372867092" x2="250.00000000000009" y2="796.4101615137755"/>
+<text class="sign-text" x="188.37049096097746" y="711.6295090390227">♏</text>
+<line class="zodiac-div" x1="155.5513627132908" y1="620.0" x2="103.5898384862245" y2="650.0"/>
+<text class="sign-text" x="92.60744427304479" y="545.7630466879327">♐</text>
+<line class="zodiac-div" x1="110.0" y1="450.00000000000006" x2="50.0" y2="450.00000000000006"/>
+<text class="sign-text" x="92.60744427304473" y="354.23695331206727">♑</text>
+<line class="zodiac-div" x1="155.55136271329087" y1="280.0" x2="103.58983848622455" y2="249.99999999999994"/>
+<text class="sign-text" x="188.37049096097735" y="188.37049096097746">♒</text>
+<line class="zodiac-div" x1="279.9999999999999" y1="155.55136271329093" x2="249.99999999999983" y2="103.58983848622461"/>
+<text class="sign-text" x="354.2369533120674" y="92.60744427304473">♓</text>
+<text class="ring-label" x="450.0" y="740.0">TRANSIT</text>
+<text class="ring-label" x="450.0" y="700.0">NATAL</text>
+<line class="tick" x1="461.7501462053663" y1="120.2092571581905" x2="462.10621124189254" y2="110.21559828419629" stroke="#4682B4" opacity="0.5"/>
+<text class="planet" x="461.03801613231377" y="140.19657490617897" fill="#4682B4">♆</text>
+<text class="degree-text" x="461.6077201907558" y="124.20672070778824">2°02'</text>
+<line class="tick" x1="483.6980765222135" y1="121.72505481121004" x2="484.71923035621995" y2="111.77732919942855" stroke="#8B4513" opacity="0.5"/>
+<line x1="484.71923035621995" y1="111.77732919942855" x2="514.6671240674918" y2="146.81991644430263" stroke="#8B4513" stroke-width="0.5" opacity="0.3"/>
+<text class="planet" x="514.6671240674918" y="146.81991644430263" fill="#8B4513">♄</text>
+<text class="degree-text" x="518.0047820838785" y="131.1719121317505">5°51'</text>
+<line class="tick" x1="542.7637242518247" y1="133.30631287799338" x2="545.5747461988497" y2="123.70953448035681" stroke="#FFD700" opacity="0.5"/>
+<line x1="545.5747461988497" y1="123.70953448035681" x2="566.3313541610229" y2="162.65523140474147" stroke="#FFD700" stroke-width="0.5" opacity="0.3"/>
+<text class="planet" x="566.3313541610229" y="162.65523140474147" fill="#FFD700">☉</text>
+<text class="degree-text" x="572.3355530854627" y="147.82453367079262">16°19'</text>
+<line class="tick" x1="653.3227755706524" y1="190.07722505666015" x2="659.4840718000662" y2="182.2007773311044" stroke="#90EE90" opacity="0.5"/>
+<text class="planet" x="641.000183111825" y="205.83012050777165" fill="#90EE90">♀</text>
+<text class="degree-text" x="650.8582570788869" y="193.22780414688248">8°02'</text>
+<line class="tick" x1="731.7901919095685" y1="278.26098945327374" x2="740.3292886341009" y2="273.05677701246384" stroke="#40E0D0" opacity="0.5"/>
+<text class="planet" x="714.7119984605038" y="288.6694143348935" fill="#40E0D0">♅</text>
+<text class="degree-text" x="728.3745532197556" y="280.34267442959765">28°38'</text>
+<line class="tick" x1="767.5108161904461" y1="539.9270904793251" x2="777.1323560750052" y2="542.6521538271834" stroke="#4169E1" opacity="0.5"/>
+<text class="planet" x="748.2677364213282" y="534.4769637836084" fill="#4169E1">♃</text>
+<text class="degree-text" x="763.6622002366225" y="538.8370651401817">15°48'</text>
+<line class="tick" x1="148.93396016182925" y1="585.1267540354648" x2="139.81074683339983" y2="589.2215041577516" stroke="#C0C0C0" opacity="0.5"/>
+<text class="planet" x="167.18038681868813" y="576.9372537908912" fill="#C0C0C0">☽</text>
+<text class="degree-text" x="152.58324549320105" y="583.4888539865501">5°49'</text>
+<line class="tick" x1="179.44966720758134" y1="261.0489020251231" x2="171.25117227447777" y2="255.32311117739957" stroke="#800080" opacity="0.5"/>
+<text class="planet" x="195.84665707378855" y="272.5004837205702" fill="#800080">♇</text>
+<text class="degree-text" x="182.72906518082283" y="263.33921836421257">4°55'</text>
+<line class="tick" x1="385.46030201056874" y1="126.37270296924424" x2="383.5045535866466" y2="116.5658151804335" stroke="#FFA500" opacity="0.5"/>
+<text class="planet" x="389.37179885841306" y="145.98647854686584" fill="#FFA500">☿</text>
+<text class="degree-text" x="386.2426013801376" y="130.2954580847686">18°43'</text>
+<line class="tick" x1="432.99041406626793" y1="120.43866430304212" x2="432.4749720682761" y2="110.45195716071004" stroke="#FF6347" opacity="0.5"/>
+<line x1="432.4749720682761" y1="110.45195716071004" x2="443.0842714510245" y2="140.07715040894954" stroke="#FF6347" stroke-width="0.5" opacity="0.3"/>
+<text class="planet" x="443.0842714510245" y="140.07715040894954" fill="#FF6347">♂</text>
+<text class="degree-text" x="442.72733062269026" y="124.0811323655405">27°02'</text>
+<line class="tick" x1="511.04758306825187" y1="186.99202939544801" x2="508.7865614731314" y2="196.73306534376474" stroke="#90EE90" opacity="0.5"/>
+<text class="planet" x="502.0034966877701" y="225.95617318871496" fill="#90EE90">♀</text>
+<text class="degree-text" x="498.3858621355774" y="241.54183070602176">13°04'</text>
+<line class="tick" x1="616.7173179258682" y1="237.6198316612284" x2="610.5426024471324" y2="245.48576382192363" stroke="#FFA500" opacity="0.5"/>
+<text class="planet" x="592.0184560109249" y="269.0835603040094" fill="#FFA500">☿</text>
+<text class="degree-text" x="582.1389112449474" y="281.66905176112175">8°07'</text>
+<line class="tick" x1="670.158685032756" y1="293.69851758653164" x2="662.0046596611724" y2="299.487461379623" stroke="#FFD700" opacity="0.5"/>
+<text class="planet" x="637.5425835464217" y="316.8542927588973" fill="#FFD700">☉</text>
+<text class="degree-text" x="624.496142951888" y="326.1166028278436">24°37'</text>
+<line class="tick" x1="716.1458008147212" y1="495.45781240546853" x2="706.2885489326944" y2="493.7741897237845" stroke="#4169E1" opacity="0.5"/>
+<text class="planet" x="676.7167932866143" y="488.7233216787325" fill="#4169E1">♃</text>
+<text class="degree-text" x="660.9451902753716" y="486.029525388038">9°41'</text>
+<line class="tick" x1="254.81178903285817" y1="636.5517684168299" x2="262.0409820316412" y2="629.642443660651" stroke="#800080" opacity="0.5"/>
+<text class="planet" x="283.7285610279903" y="608.9144693921144" fill="#800080">♇</text>
+<text class="degree-text" x="295.2952698260432" y="597.8595497822281">16°17'</text>
+<line class="tick" x1="183.55856878670016" y1="406.3083104811865" x2="193.4267699427483" y2="407.9265212041055" stroke="#40E0D0" opacity="0.5"/>
+<text class="planet" x="223.0313734108927" y="412.78115337286255" fill="#40E0D0">♅</text>
+<text class="degree-text" x="238.82049526056974" y="415.37029052953295">9°18'</text>
+<line class="tick" x1="188.57964935653445" y1="382.4766687029772" x2="198.26188456555167" y2="384.97753282508916" stroke="#4682B4" opacity="0.5"/>
+<line x1="188.57964935653445" y1="382.4766687029772" x2="232.94252173618173" y2="373.93390288865834" stroke="#4682B4" stroke-width="0.5" opacity="0.3"/>
+<text class="planet" x="232.94252173618173" y="373.93390288865834" fill="#4682B4">♆</text>
+<text class="degree-text" x="248.04217239801258" y="379.2254574703169">14°28'</text>
+<line class="tick" x1="206.05689037462423" y1="334.27723099449315" x2="215.09182036074924" y2="338.5632594761786" stroke="#8B4513" opacity="0.5"/>
+<line x1="206.05689037462423" y1="334.27723099449315" x2="249.4488517021332" y2="337.39788227387976" stroke="#8B4513" stroke-width="0.5" opacity="0.3"/>
+<text class="planet" x="249.4488517021332" y="337.39788227387976" fill="#8B4513">♄</text>
+<text class="degree-text" x="263.40023593155" y="345.2310730722186">25°22'</text>
+<line class="tick" x1="212.88439455793457" y1="320.8636780148871" x2="221.6664540187518" y2="325.6465047550765" stroke="#C0C0C0" opacity="0.5"/>
+<line x1="212.88439455793457" y1="320.8636780148871" x2="272.0488268253376" y2="304.28322002678857" stroke="#C0C0C0" stroke-width="0.5" opacity="0.3"/>
+<text class="planet" x="272.0488268253376" y="304.28322002678857" fill="#C0C0C0">☽</text>
+<text class="degree-text" x="284.42803887227063" y="314.4200395031859">28°34'</text>
+<line class="tick" x1="396.3647904623008" y1="185.3809071554981" x2="398.3512797044378" y2="195.18161429788708" stroke="#FF6347" opacity="0.5"/>
+<text class="planet" x="404.3107474308488" y="224.58373572505397" fill="#FF6347">♂</text>
+<text class="degree-text" x="407.48913021826803" y="240.2648671528763">18°32'</text>
+<line class="aspect-line" x1="500.5983950464498" y1="277.25798884254186" x2="490.6983887121679" y2="274.6613529302987" stroke="#ff6b6b"/>
+<line class="aspect-line" x1="500.5983950464498" y1="277.25798884254186" x2="627.4305338764808" y2="480.30520827031233" stroke="#ff9f43" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="500.5983950464498" y1="277.25798884254186" x2="272.3723791911334" y2="420.8722069874576" stroke="#ff9f43" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="500.5983950464498" y1="277.25798884254186" x2="275.7197662376896" y2="404.9844458019848" stroke="#ff9f43" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="285.78216008827053" y1="523.7055022011626" x2="490.6983887121679" y2="274.6613529302987" stroke="#6c5ce7"/>
+<line class="aspect-line" x1="414.79652836940113" y1="273.476019801406" x2="596.772456688504" y2="345.7990117243544" stroke="#4ecdc4"/>
+<line class="aspect-line" x1="414.79652836940113" y1="273.476019801406" x2="414.2431936415338" y2="273.5872714369988" stroke="#ff6b6b"/>
+<line class="aspect-line" x1="414.79652836940113" y1="273.476019801406" x2="275.7197662376896" y2="404.9844458019848" stroke="#4ecdc4"/>
+<line class="aspect-line" x1="414.79652836940113" y1="273.476019801406" x2="319.87452602190547" y2="574.36784561122" stroke="#6c5ce7"/>
+<line class="aspect-line" x1="560.9033321294468" y1="308.22394093999645" x2="561.1448786172455" y2="308.4132211074856" stroke="#ff6b6b"/>
+<line class="aspect-line" x1="560.9033321294468" y1="308.22394093999645" x2="627.4305338764808" y2="480.30520827031233" stroke="#4ecdc4"/>
+<line class="aspect-line" x1="560.9033321294468" y1="308.22394093999645" x2="272.3723791911334" y2="420.8722069874576" stroke="#6c5ce7"/>
+<line class="aspect-line" x1="560.9033321294468" y1="308.22394093999645" x2="275.7197662376896" y2="404.9844458019848" stroke="#6c5ce7"/>
+<line class="aspect-line" x1="440.72204403614614" y1="270.23927143802297" x2="596.772456688504" y2="345.7990117243544" stroke="#4ecdc4"/>
+<line class="aspect-line" x1="440.72204403614614" y1="270.23927143802297" x2="291.9229297052897" y2="363.90911867659145" stroke="#4ecdc4"/>
+<line class="aspect-line" x1="440.72204403614614" y1="270.23927143802297" x2="287.37126024974947" y2="372.8514873296621" stroke="#4ecdc4"/>
+<line class="aspect-line" x1="623.1877179220616" y1="499.05114026145003" x2="490.6983887121679" y2="274.6613529302987" stroke="#ff9f43" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="623.1877179220616" y1="499.05114026145003" x2="414.2431936415338" y2="273.5872714369988" stroke="#6c5ce7"/>
+<line class="aspect-line" x1="623.1877179220616" y1="499.05114026145003" x2="627.4305338764808" y2="480.30520827031233" stroke="#ff6b6b"/>
+<line class="aspect-line" x1="623.1877179220616" y1="499.05114026145003" x2="272.3723791911334" y2="420.8722069874576" stroke="#fd79a8" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="623.1877179220616" y1="499.05114026145003" x2="275.7197662376896" y2="404.9844458019848" stroke="#fd79a8" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="623.1877179220616" y1="499.05114026145003" x2="319.87452602190547" y2="574.36784561122" stroke="#6c5ce7"/>
+<line class="aspect-line" x1="468.38076901211645" y1="270.9409389879328" x2="490.6983887121679" y2="274.6613529302987" stroke="#ff6b6b"/>
+<line class="aspect-line" x1="468.38076901211645" y1="270.9409389879328" x2="627.4305338764808" y2="480.30520827031233" stroke="#ff9f43" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="468.38076901211645" y1="270.9409389879328" x2="272.3723791911334" y2="420.8722069874576" stroke="#ff9f43" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="603.7037410415828" y1="356.324176065422" x2="596.772456688504" y2="345.7990117243544" stroke="#ff6b6b"/>
+<line class="aspect-line" x1="603.7037410415828" y1="356.324176065422" x2="291.9229297052897" y2="363.90911867659145" stroke="#6c5ce7"/>
+<line class="aspect-line" x1="603.7037410415828" y1="356.324176065422" x2="287.37126024974947" y2="372.8514873296621" stroke="#6c5ce7"/>
+<line class="aspect-line" x1="456.40917065747254" y1="270.11414026810394" x2="291.9229297052897" y2="363.90911867659145" stroke="#4ecdc4"/>
+<line class="aspect-line" x1="456.40917065747254" y1="270.11414026810394" x2="627.4305338764808" y2="480.30520827031233" stroke="#ff9f43" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="456.40917065747254" y1="270.11414026810394" x2="272.3723791911334" y2="420.8722069874576" stroke="#ff9f43" stroke-dasharray="5,4"/>
+<line class="aspect-line" x1="302.4270912041353" y1="346.93576474097625" x2="291.9229297052897" y2="363.90911867659145" stroke="#ff6b6b"/>
+<line class="aspect-line" x1="302.4270912041353" y1="346.93576474097625" x2="561.1448786172455" y2="308.4132211074856" stroke="#ff9f43" stroke-dasharray="5,4"/>
+<!-- 33 aspect lines drawn -->
+<text class="legend" x="20" y="920" style="font-weight:bold;">Planets:</text>
+<text class="legend" x="20" y="938" fill="#FFD700">☉ Sun</text>
+<text class="legend" x="110" y="938" fill="#C0C0C0">☽ Moon</text>
+<text class="legend" x="200" y="938" fill="#FFA500">☿ Mercury</text>
+<text class="legend" x="290" y="938" fill="#90EE90">♀ Venus</text>
+<text class="legend" x="380" y="938" fill="#FF6347">♂ Mars</text>
+<text class="legend" x="20" y="954" fill="#4169E1">♃ Jupiter</text>
+<text class="legend" x="110" y="954" fill="#8B4513">♄ Saturn</text>
+<text class="legend" x="200" y="954" fill="#40E0D0">♅ Uranus</text>
+<text class="legend" x="290" y="954" fill="#4682B4">♆ Neptune</text>
+<text class="legend" x="380" y="954" fill="#800080">♇ Pluto</text>
+<text class="legend" x="20" y="976" style="font-weight:bold;">Signs:</text>
+<text class="legend" x="20" y="992">♈ Aries</text>
+<text class="legend" x="130" y="992">♉ Taurus</text>
+<text class="legend" x="240" y="992">♊ Gemini</text>
+<text class="legend" x="350" y="992">♋ Cancer</text>
+<text class="legend" x="460" y="992">♌ Leo</text>
+<text class="legend" x="570" y="992">♍ Virgo</text>
+<text class="legend" x="20" y="1008">♎ Libra</text>
+<text class="legend" x="130" y="1008">♏ Scorpio</text>
+<text class="legend" x="240" y="1008">♐ Sagittarius</text>
+<text class="legend" x="350" y="1008">♑ Capricorn</text>
+<text class="legend" x="460" y="1008">♒ Aquarius</text>
+<text class="legend" x="570" y="1008">♓ Pisces</text>
+<text class="legend" x="20" y="1030" style="font-weight:bold;">Aspects:</text>
+<line x1="20" y1="1046" x2="40" y2="1046" stroke="#ff6b6b" stroke-width="2"/>
+<text class="legend" x="46" y="1046">☌ Conjunction</text>
+<line x1="160" y1="1046" x2="180" y2="1046" stroke="#4ecdc4" stroke-width="2"/>
+<text class="legend" x="186" y="1046">✱ Sextile</text>
+<line x1="300" y1="1046" x2="320" y2="1046" stroke="#ff9f43" stroke-width="2" stroke-dasharray="4,3"/>
+<text class="legend" x="326" y="1046">□ Square</text>
+<line x1="440" y1="1046" x2="460" y2="1046" stroke="#6c5ce7" stroke-width="2"/>
+<text class="legend" x="466" y="1046">△ Trine</text>
+<line x1="580" y1="1046" x2="600" y2="1046" stroke="#fd79a8" stroke-width="2" stroke-dasharray="4,3"/>
+<text class="legend" x="606" y="1046">☍ Opposition</text>
+</svg>

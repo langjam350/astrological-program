@@ -102,7 +102,7 @@ class LocalDeliveryManager:
             # Summary notification
             if delivered_locations:
                 locations_text = ", ".join(delivered_locations)
-                print(f"📦 Report delivered to: {locations_text}")
+                print(f"Report delivered to: {locations_text}")
 
             return success
 
@@ -139,7 +139,7 @@ $notification.Dispose()
                 subprocess.run(['powershell', '-Command', ps_script],
                              check=False, capture_output=True)
 
-            print("📢 Windows notification sent")
+            print("Windows notification sent")
 
         except Exception as e:
             print(f"Notification failed: {e}")
@@ -156,7 +156,7 @@ $notification.Dispose()
             dest_file = dest_path / os.path.basename(zip_path)
             shutil.copy2(zip_path, dest_file)
 
-            print(f"📁 Copied to: {dest_file}")
+            print(f"Copied to: {dest_file}")
             return True
 
         except Exception as e:
@@ -182,7 +182,7 @@ IconIndex=0
             with open(url_path, 'w') as f:
                 f.write(url_content)
 
-            print(f"🔗 Desktop shortcut created: {url_path.name}")
+            print(f"Desktop shortcut created: {url_path.name}")
 
         except Exception as e:
             print(f"Shortcut creation failed: {e}")

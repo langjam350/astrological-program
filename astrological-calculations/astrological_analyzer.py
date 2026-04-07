@@ -35,11 +35,17 @@ except ImportError:
     print("LLM enhancement not available - continuing with standard reports")
 
 try:
-    from chart_generator import create_chart_for_planets
+    from chart_generator import create_chart_for_planets, create_aspect_grid
     CHART_GENERATION_AVAILABLE = True
 except ImportError:
     CHART_GENERATION_AVAILABLE = False
     print("Chart generation not available")
+
+try:
+    from biwheel_generator import create_biwheel
+    BIWHEEL_AVAILABLE = True
+except ImportError:
+    BIWHEEL_AVAILABLE = False
 
 try:
     from local_delivery import LocalDeliveryManager
@@ -80,6 +86,8 @@ class AstrologicalCalculator:
         self.historical_data = self._load_data_file("historical_patterns.txt")
         self.activities_data = self._load_data_file("ideal_activities.txt")
 
+        self.last_ascendant = None  # Stored after house calculation
+
         # Sign boundaries (simplified - 30 degrees each)
         self.sign_names = [
             "ARIES", "TAURUS", "GEMINI", "CANCER", "LEO", "VIRGO",
@@ -91,7 +99,7 @@ class AstrologicalCalculator:
             try:
                 self.ephemeris = load('de421.bsp')  # JPL ephemeris
                 self.timescale = load.timescale()
-                print("✨ Using Skyfield for accurate astronomical calculations")
+                print("Using Skyfield for accurate astronomical calculations")
             except Exception as e:
                 print(f"Warning: Could not load Skyfield ephemeris: {e}")
                 print("Falling back to simplified calculations")
@@ -252,14 +260,54 @@ class AstrologicalCalculator:
 
         return 0.0
 
+    def _calculate_ascendant(self, latitude: float, longitude: float, jd: float) -> float:
+        """Calculate the Ascendant (rising sign degree) based on birth time and location.
+
+        Uses Local Sidereal Time to determine which degree of the ecliptic
+        is rising on the eastern horizon at the given time and place.
+        """
+        import math
+
+        if self.ephemeris and self.timescale:
+            try:
+                t = self.timescale.tt_jd(jd)
+                # Get Greenwich Apparent Sidereal Time from Skyfield
+                gast = t.gast  # in hours
+                # Local Sidereal Time = GAST + geographic longitude (converted to hours)
+                lst = (gast + longitude / 15.0) % 24.0
+                # Convert LST to degrees (RAMC)
+                ramc = lst * 15.0  # degrees
+            except Exception:
+                # Fallback: approximate GMST calculation
+                t0 = jd - 2451545.0  # days from J2000.0
+                gmst = (280.46061837 + 360.98564736629 * t0) % 360.0
+                ramc = (gmst + longitude) % 360.0
+        else:
+            # Fallback: approximate GMST calculation
+            t0 = jd - 2451545.0
+            gmst = (280.46061837 + 360.98564736629 * t0) % 360.0
+            ramc = (gmst + longitude) % 360.0
+
+        # Calculate Ascendant using the standard formula:
+        # tan(ASC) = -cos(RAMC) / (sin(RAMC) * cos(obliquity) + tan(latitude) * sin(obliquity))
+        obliquity = math.radians(23.4393)  # Earth's axial tilt (approximate)
+        lat_rad = math.radians(latitude)
+        ramc_rad = math.radians(ramc)
+
+        # Standard formula: tan(ASC) = cos(RAMC) / -(sin(RAMC)*cos(ε) + tan(φ)*sin(ε))
+        numerator = math.cos(ramc_rad)
+        denominator = -(math.sin(ramc_rad) * math.cos(obliquity) +
+                        math.tan(lat_rad) * math.sin(obliquity))
+
+        ascendant = math.degrees(math.atan2(numerator, denominator)) % 360.0
+        return ascendant
+
     def _calculate_houses(self, latitude: float, longitude: float, jd: float) -> List[float]:
-        """Calculate house cusps using simplified Placidus system."""
-        # This is a very simplified house calculation
-        # Real implementation would use proper Placidus or other house system
+        """Calculate house cusps using Equal House system based on the Ascendant."""
+        ascendant = self._calculate_ascendant(latitude, longitude, jd)
+        self.last_ascendant = ascendant  # Store for use by chart generators
 
         houses = []
-        ascendant = 0  # Simplified - would calculate based on time and location
-
         for i in range(12):
             house_cusp = (ascendant + i * 30) % 360
             houses.append(house_cusp)
@@ -268,11 +316,18 @@ class AstrologicalCalculator:
 
     def _get_house_for_planet(self, planet_longitude: float, house_cusps: List[float]) -> int:
         """Determine which house a planet is in."""
-        # Simplified house assignment
+        planet_longitude = planet_longitude % 360
         for i in range(12):
             next_house = (i + 1) % 12
-            if house_cusps[i] <= planet_longitude < house_cusps[next_house]:
-                return i + 1
+            cusp_start = house_cusps[i]
+            cusp_end = house_cusps[next_house]
+            if cusp_start < cusp_end:
+                if cusp_start <= planet_longitude < cusp_end:
+                    return i + 1
+            else:
+                # Wraps around 360/0 boundary
+                if planet_longitude >= cusp_start or planet_longitude < cusp_end:
+                    return i + 1
         return 1  # Default to first house
 
     def _calculate_aspects(self, planets: Dict[str, Planet]) -> List[Aspect]:
@@ -413,6 +468,25 @@ class AstrologicalAnalyzer:
         analysis.append(f"Birth Date: {date_str}")
         analysis.append(f"Birth Time: {time_str}")
         analysis.append(f"Birth Location: {location}")
+
+        # Display rising sign from ascendant
+        ascendant = getattr(self.calculator, 'last_ascendant', None)
+        if ascendant is not None:
+            rising_sign = self.calculator._get_sign_from_longitude(ascendant)
+            asc_degrees = int(ascendant % 30)
+            asc_minutes = int((ascendant % 30 - asc_degrees) * 60)
+            analysis.append(f"Rising Sign: {rising_sign} ({asc_degrees}°{asc_minutes:02d}')")
+
+            # Show house sign assignments
+            analysis.append("")
+            analysis.append("HOUSE SIGNS (Equal House System)")
+            analysis.append("-" * 35)
+            sign_index = int(ascendant // 30)
+            sign_names = self.calculator.sign_names
+            for i in range(12):
+                house_sign = sign_names[(sign_index + i) % 12]
+                analysis.append(f"  House {i+1:2d}: {house_sign}")
+
         analysis.append("")
 
         # Planetary positions
@@ -622,7 +696,7 @@ class WeeklyAnalyzer:
                 if provider and provider != "none":
                     self.llm_enhancer = LLMEnhancer(config_manager.get_config(), provider)
                     if self.llm_enhancer.is_available():
-                        print(f"✨ LLM enhancement enabled ({provider}) - reports will be user-friendly!")
+                        print(f"LLM enhancement enabled ({provider}) - reports will be user-friendly!")
                         self.llm_enhancer.warm_model()
                     else:
                         print(f"📝 {provider} configured but not available - using standard reports")
@@ -648,6 +722,7 @@ class WeeklyAnalyzer:
         birth_planets, birth_aspects = self.calculator.calculate_chart(
             birth_date, birth_time, birth_location
         )
+        birth_ascendant = getattr(self.calculator, 'last_ascendant', None)
 
         # Generate reports for 7 days starting today
         for day_offset in range(7):
@@ -662,7 +737,8 @@ class WeeklyAnalyzer:
 
             # Generate daily analysis
             daily_analysis = self._generate_daily_analysis(
-                birth_planets, daily_planets, report_date, current_location
+                birth_planets, daily_planets, report_date, current_location,
+                birth_ascendant=birth_ascendant
             )
 
             # Save technical version with YYYYMMDD format
@@ -679,7 +755,8 @@ class WeeklyAnalyzer:
                     daily_chart_file = create_chart_for_planets(
                         daily_planets,
                         f"Transit Chart - {report_date.strftime('%A, %B %d, %Y')}",
-                        folder_name
+                        folder_name,
+                        ascendant=birth_ascendant
                     )
                     # Rename chart file to match date format
                     old_chart_name = os.path.basename(daily_chart_file)
@@ -692,8 +769,81 @@ class WeeklyAnalyzer:
                 except Exception as e:
                     print(f"Daily chart generation failed for {date_str}: {e}")
 
+                # Generate aspect grid (natal vs transit)
+                try:
+                    grid_file = create_aspect_grid(
+                        birth_planets,
+                        daily_planets,
+                        self.calculator.aspects_data,
+                        f"Natal-Transit Aspect Grid - {report_date.strftime('%A, %B %d, %Y')}",
+                        folder_name
+                    )
+                    # Rename to consistent date format
+                    new_grid_name = f"{date_str}_aspect_grid.svg"
+                    new_grid_path = os.path.join(folder_name, new_grid_name)
+                    if os.path.exists(grid_file):
+                        os.rename(grid_file, new_grid_path)
+                except Exception as e:
+                    print(f"Aspect grid generation failed for {date_str}: {e}")
+
+            # Generate bi-wheel chart (natal + transit)
+            if BIWHEEL_AVAILABLE:
+                try:
+                    biwheel_file = create_biwheel(
+                        birth_planets,
+                        daily_planets,
+                        self.calculator.aspects_data,
+                        f"Natal-Transit Bi-Wheel - {report_date.strftime('%A, %B %d, %Y')}",
+                        folder_name
+                    )
+                    new_biwheel_name = f"{date_str}_biwheel.svg"
+                    new_biwheel_path = os.path.join(folder_name, new_biwheel_name)
+                    if os.path.exists(biwheel_file):
+                        os.rename(biwheel_file, new_biwheel_path)
+                except Exception as e:
+                    print(f"Bi-wheel generation failed for {date_str}: {e}")
+
+            # Generate LLM aspect summary and append to daily txt
+            if self.llm_enhancer:
+                # Build full aspect list for the LLM (including same-planet aspects)
+                all_transit_aspects = []
+                for transit_name, transit_planet in daily_planets.items():
+                    for natal_name, natal_planet in birth_planets.items():
+                        angle = abs(transit_planet.longitude - natal_planet.longitude)
+                        if angle > 180:
+                            angle = 360 - angle
+                        for aspect_name, aspect_info in self.calculator.aspects_data.items():
+                            parts = aspect_info[0].split(';')
+                            if len(parts) >= 2:
+                                target_angle = float(parts[0])
+                                orb = float(parts[1])
+                                if abs(angle - target_angle) <= orb:
+                                    actual_orb = abs(angle - target_angle)
+                                    all_transit_aspects.append(
+                                        f"Transit {transit_name} {aspect_name} Natal {natal_name} (orb: {actual_orb:.1f}°)"
+                                    )
+
+                if all_transit_aspects:
+                    aspect_list_text = "\n".join(all_transit_aspects)
+                    aspect_summary = self.llm_enhancer.enhance_aspect_summary(
+                        aspect_list_text,
+                        report_date.strftime("%A"),
+                        report_date.strftime("%B %d, %Y")
+                    )
+                    if aspect_summary:
+                        with open(filepath, 'a', encoding='utf-8') as f:
+                            f.write("\n\n")
+                            f.write("=" * 60 + "\n")
+                            f.write("NATAL-TRANSIT ASPECT SUMMARY (AI-Generated)\n")
+                            f.write("=" * 60 + "\n\n")
+                            f.write(aspect_summary + "\n")
+
             # Generate and save LLM-enhanced version if available
             if self.llm_enhancer:
+                # Re-read the file in case aspect summary was appended
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    daily_analysis = f.read()
+
                 enhanced_analysis = self.llm_enhancer.enhance_daily_report(
                     daily_analysis, report_date.strftime("%A")
                 )
@@ -703,13 +853,14 @@ class WeeklyAnalyzer:
                 with open(enhanced_filepath, 'w', encoding='utf-8') as f:
                     f.write(enhanced_analysis)
 
-                print(f"Generated: {filename}, {date_str}_transits_chart.svg & {enhanced_filename}")
+                print(f"Generated: {filename}, {date_str}_transits_chart.svg, {date_str}_aspect_grid.svg, {date_str}_biwheel.svg & {enhanced_filename}")
             else:
-                print(f"Generated: {filename} & {date_str}_transits_chart.svg")
+                print(f"Generated: {filename}, {date_str}_transits_chart.svg, {date_str}_aspect_grid.svg & {date_str}_biwheel.svg")
 
         # Generate weekly summary
         weekly_summary = self._generate_weekly_summary(
-            birth_planets, birth_location, current_location, now
+            birth_planets, birth_location, current_location, now,
+            birth_ascendant=birth_ascendant
         )
 
         # Save technical weekly summary
@@ -736,7 +887,8 @@ class WeeklyAnalyzer:
                 birth_chart_file = create_chart_for_planets(
                     birth_planets,
                     f"Birth Chart - {birth_date}",
-                    folder_name
+                    folder_name,
+                    ascendant=birth_ascendant
                 )
 
                 # Rename to consistent format
@@ -751,7 +903,7 @@ class WeeklyAnalyzer:
         # Create ZIP package
         zip_path = self._create_zip_package(folder_name)
         if zip_path:
-            print(f"📦 Report package created: {os.path.basename(zip_path)}")
+            print(f"Report package created: {os.path.basename(zip_path)}")
 
             # Deliver report using local delivery system
             if LOCAL_DELIVERY_AVAILABLE:
@@ -798,7 +950,7 @@ class WeeklyAnalyzer:
             return None
 
     def _move_zip_to_destination(self, zip_path: str, zip_filename: str) -> None:
-        """Move the ZIP file to C:\MyReports\astrology-reports\ folder."""
+        r"""Move the ZIP file to C:\MyReports\astrology-reports\ folder."""
         try:
             # Define destination folder path
             if os.name == 'nt':  # Windows
@@ -815,7 +967,7 @@ class WeeklyAnalyzer:
             # Copy the file to destination
             shutil.copy2(zip_path, destination_path)
 
-            print(f"📁 ZIP file copied to: {destination_path}")
+            print(f"ZIP file copied to: {destination_path}")
 
         except Exception as e:
             print(f"Warning: Failed to move ZIP to destination folder: {e}")
@@ -824,7 +976,8 @@ class WeeklyAnalyzer:
     def _generate_daily_analysis(self, birth_planets: Dict[str, Planet],
                                 daily_planets: Dict[str, Planet],
                                 report_date: datetime.datetime,
-                                current_location: str) -> str:
+                                current_location: str,
+                                birth_ascendant: float = None) -> str:
         """Generate analysis for a specific day."""
         analysis = []
 
@@ -834,6 +987,9 @@ class WeeklyAnalyzer:
         analysis.append("=" * 60)
         analysis.append(f"Date: {report_date.strftime('%A, %B %d, %Y')}")
         analysis.append(f"Location: {current_location}")
+        if birth_ascendant is not None:
+            rising_sign = self.calculator._get_sign_from_longitude(birth_ascendant)
+            analysis.append(f"Rising Sign: {rising_sign}")
         analysis.append("")
 
         # Daily planetary positions
@@ -894,7 +1050,8 @@ class WeeklyAnalyzer:
 
     def _generate_weekly_summary(self, birth_planets: Dict[str, Planet],
                                 birth_location: str, current_location: str,
-                                start_date: datetime.datetime) -> str:
+                                start_date: datetime.datetime,
+                                birth_ascendant: float = None) -> str:
         """Generate weekly summary report."""
         analysis = []
 
@@ -906,6 +1063,14 @@ class WeeklyAnalyzer:
         analysis.append(f"Week of: {start_date.strftime('%B %d')} - {end_date.strftime('%B %d, %Y')}")
         analysis.append(f"Birth Location: {birth_location}")
         analysis.append(f"Current Location: {current_location}")
+
+        # Display rising sign
+        if birth_ascendant is not None:
+            rising_sign = self.calculator._get_sign_from_longitude(birth_ascendant)
+            asc_degrees = int(birth_ascendant % 30)
+            asc_minutes = int((birth_ascendant % 30 - asc_degrees) * 60)
+            analysis.append(f"Rising Sign: {rising_sign} ({asc_degrees}°{asc_minutes:02d}')")
+
         analysis.append("")
 
         # Weekly overview

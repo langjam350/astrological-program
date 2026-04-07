@@ -29,6 +29,7 @@ class AstrologicalChartGenerator:
         self.inner_radius = 280
         self.planet_radius = 250
         self.house_radius = 200
+        self.ascendant = None  # Set by generate_chart when provided
 
         # Planet symbols and colors
         self.planet_symbols = {
@@ -68,8 +69,17 @@ class AstrologicalChartGenerator:
             'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
         ]
 
-    def generate_chart(self, planets: Dict[str, any], chart_title: str = "Astrological Chart") -> str:
-        """Generate SVG chart from planetary data."""
+    def generate_chart(self, planets: Dict[str, any], chart_title: str = "Astrological Chart",
+                       ascendant: float = None) -> str:
+        """Generate SVG chart from planetary data.
+
+        Args:
+            planets: Dictionary of planet data
+            chart_title: Title for the chart
+            ascendant: Ascendant degree (0-360). When provided, houses are
+                       positioned starting from this degree.
+        """
+        self.ascendant = ascendant
         svg_content = self._create_svg_header()
 
         # Add title
@@ -78,7 +88,7 @@ class AstrologicalChartGenerator:
         # Draw zodiac wheel
         svg_content += self._draw_zodiac_wheel()
 
-        # Draw house lines (simplified equal house system)
+        # Draw house lines based on ascendant
         svg_content += self._draw_house_lines()
 
         # Add planets
@@ -154,11 +164,15 @@ class AstrologicalChartGenerator:
         return svg
 
     def _draw_house_lines(self) -> str:
-        """Draw house division lines (simplified equal house system)."""
+        """Draw house division lines using Equal House system based on Ascendant."""
         svg = ""
 
+        # Use ascendant as the starting degree for House 1, or default to 0
+        asc_offset = self.ascendant if self.ascendant is not None else 0.0
+
         for i in range(12):
-            angle_deg = i * 30
+            # Each house cusp starts at ascendant + i*30 degrees
+            angle_deg = asc_offset + i * 30
             angle_rad = math.radians(angle_deg - 90)
 
             x1 = self.center + self.house_radius * math.cos(angle_rad)
@@ -166,9 +180,18 @@ class AstrologicalChartGenerator:
             x2 = self.center + self.inner_radius * math.cos(angle_rad)
             y2 = self.center + self.inner_radius * math.sin(angle_rad)
 
-            svg += f'<line class="house-line" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}"/>\n'
+            # Emphasize the Ascendant line (House 1 cusp)
+            if i == 0 and self.ascendant is not None:
+                svg += f'<line class="house-line" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" style="stroke: #ff6666; stroke-width: 2;"/>\n'
+                # Add "ASC" label
+                label_radius = self.inner_radius - 15
+                label_x = self.center + label_radius * math.cos(angle_rad)
+                label_y = self.center + label_radius * math.sin(angle_rad)
+                svg += f'<text x="{label_x}" y="{label_y}" style="font-size: 10px; fill: #ff6666; text-anchor: middle; dominant-baseline: central; font-weight: bold;">ASC</text>\n'
+            else:
+                svg += f'<line class="house-line" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}"/>\n'
 
-            # Add house number
+            # Add house number at the midpoint of the house sector
             house_text_radius = (self.house_radius + self.inner_radius) / 2
             text_angle_rad = math.radians((angle_deg + 15) - 90)
             text_x = self.center + house_text_radius * math.cos(text_angle_rad)
@@ -362,6 +385,172 @@ class AstrologicalChartGenerator:
 
         return svg
 
+    def generate_aspect_grid(self, natal_planets: Dict[str, any],
+                              transit_planets: Dict[str, any],
+                              aspects_data: Dict[str, list] = None,
+                              chart_title: str = "Natal-Transit Aspect Grid") -> str:
+        """Generate an SVG aspect grid showing aspects between natal and transit planets.
+
+        Args:
+            natal_planets: Dict of natal planet name -> object with .longitude
+            transit_planets: Dict of transit planet name -> object with .longitude
+            aspects_data: Optional dict of aspect definitions from aspects.txt
+                          Format: {'CONJUNCTION': ['0;8;...'], ...}
+                          If None, uses default orbs.
+            chart_title: Title for the grid
+        """
+        # Default aspect definitions: (target_angle, orb, symbol, color)
+        aspect_defs = [
+            (0, 8, '☌', '#ff6b6b', 'Conjunction'),
+            (60, 6, '✱', '#4ecdc4', 'Sextile'),
+            (90, 8, '□', '#ff9f43', 'Square'),
+            (120, 8, '△', '#6c5ce7', 'Trine'),
+            (180, 8, '☍', '#fd79a8', 'Opposition'),
+        ]
+
+        # Override orbs from aspects_data if provided
+        if aspects_data:
+            orb_map = {}
+            for aspect_name, aspect_info in aspects_data.items():
+                parts = aspect_info[0].split(';')
+                if len(parts) >= 2:
+                    orb_map[aspect_name.upper()] = float(parts[1])
+            name_map = {
+                'CONJUNCTION': 0, 'SEXTILE': 1, 'SQUARE': 2,
+                'TRINE': 3, 'OPPOSITION': 4
+            }
+            for name, idx in name_map.items():
+                if name in orb_map:
+                    target, _, sym, col, label = aspect_defs[idx]
+                    aspect_defs[idx] = (target, orb_map[name], sym, col, label)
+
+        # Planet order for grid
+        planet_order = [p for p in self.planet_symbols.keys()
+                        if p in natal_planets and p in transit_planets]
+
+        num_planets = len(planet_order)
+        if num_planets == 0:
+            return ""
+
+        # Grid dimensions
+        cell_size = 52
+        header_size = 90
+        padding = 30
+        title_height = 50
+        legend_height = 80
+
+        grid_width = header_size + num_planets * cell_size
+        total_width = grid_width + padding * 2
+        total_height = title_height + header_size + num_planets * cell_size + legend_height + padding * 2
+
+        svg = f'''<?xml version="1.0" encoding="UTF-8"?>
+<svg width="{total_width}" height="{total_height}" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .grid-bg {{ fill: #1a1a2e; }}
+    .cell-border {{ stroke: #2a2a4e; stroke-width: 1; fill: none; }}
+    .cell-bg {{ fill: #1a1a2e; }}
+    .cell-bg-alt {{ fill: #1f1f35; }}
+    .header-text {{ font-family: Arial, sans-serif; font-size: 18px; text-anchor: middle; dominant-baseline: central; }}
+    .header-label {{ fill: #aaaaaa; font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; dominant-baseline: central; }}
+    .aspect-symbol {{ font-family: Arial, sans-serif; font-size: 16px; text-anchor: middle; dominant-baseline: central; font-weight: bold; }}
+    .orb-text {{ fill: #aaaaaa; font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; dominant-baseline: central; }}
+    .title {{ fill: #ffffff; font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; }}
+    .axis-label {{ fill: #888888; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; text-anchor: middle; }}
+    .legend-text {{ fill: #cccccc; font-family: Arial, sans-serif; font-size: 11px; dominant-baseline: central; }}
+</style>
+
+<!-- Background -->
+<rect class="grid-bg" width="{total_width}" height="{total_height}"/>
+
+'''
+
+        # Title
+        svg += f'<text class="title" x="{total_width / 2}" y="{padding + 20}">{chart_title}</text>\n'
+
+        # Grid origin
+        ox = padding + header_size
+        oy = title_height + padding + header_size
+
+        # Axis labels
+        col_center = ox + (num_planets * cell_size) / 2
+        svg += f'<text class="axis-label" x="{col_center}" y="{oy - header_size + 8}">NATAL</text>\n'
+
+        row_center = oy + (num_planets * cell_size) / 2
+        svg += f'<text class="axis-label" x="{padding + 10}" y="{row_center}" '
+        svg += f'transform="rotate(-90, {padding + 10}, {row_center})">TRANSIT</text>\n'
+
+        # Column headers (natal planets)
+        for col, planet_name in enumerate(planet_order):
+            cx = ox + col * cell_size + cell_size / 2
+            cy_sym = oy - header_size / 2 + 6
+            cy_lbl = cy_sym + 16
+            symbol = self.planet_symbols[planet_name]
+            color = self.planet_colors[planet_name]
+            svg += f'<text class="header-text" x="{cx}" y="{cy_sym}" fill="{color}">{symbol}</text>\n'
+            short_name = planet_name[:3].title()
+            svg += f'<text class="header-label" x="{cx}" y="{cy_lbl}">{short_name}</text>\n'
+
+        # Row headers (transit planets)
+        for row, planet_name in enumerate(planet_order):
+            cy = oy + row * cell_size + cell_size / 2
+            cx_sym = ox - header_size * 2 / 3
+            cx_lbl = ox - header_size / 3
+            symbol = self.planet_symbols[planet_name]
+            color = self.planet_colors[planet_name]
+            svg += f'<text class="header-text" x="{cx_sym}" y="{cy}" fill="{color}">{symbol}</text>\n'
+            short_name = planet_name[:3].title()
+            svg += f'<text class="header-label" x="{cx_lbl}" y="{cy}">{short_name}</text>\n'
+
+        # Grid cells
+        for row, transit_name in enumerate(planet_order):
+            for col, natal_name in enumerate(planet_order):
+                cx = ox + col * cell_size
+                cy = oy + row * cell_size
+
+                # Alternating cell background
+                bg_class = "cell-bg-alt" if (row + col) % 2 == 0 else "cell-bg"
+                svg += f'<rect class="{bg_class}" x="{cx}" y="{cy}" width="{cell_size}" height="{cell_size}"/>\n'
+                svg += f'<rect class="cell-border" x="{cx}" y="{cy}" width="{cell_size}" height="{cell_size}"/>\n'
+
+                # Calculate aspect
+                natal_lon = natal_planets[natal_name].longitude
+                transit_lon = transit_planets[transit_name].longitude
+                angle_diff = abs(transit_lon - natal_lon)
+                if angle_diff > 180:
+                    angle_diff = 360 - angle_diff
+
+                # Check each aspect type
+                for target_angle, orb, symbol, color, label in aspect_defs:
+                    if abs(angle_diff - target_angle) <= orb:
+                        actual_orb = abs(angle_diff - target_angle)
+                        orb_display = f"{actual_orb:.0f}°"
+
+                        # Aspect symbol
+                        sym_x = cx + cell_size / 2
+                        sym_y = cy + cell_size / 2 - 6
+                        svg += f'<text class="aspect-symbol" x="{sym_x}" y="{sym_y}" fill="{color}">{symbol}</text>\n'
+
+                        # Orb value
+                        orb_x = cx + cell_size / 2
+                        orb_y = cy + cell_size / 2 + 10
+                        svg += f'<text class="orb-text" x="{orb_x}" y="{orb_y}">{orb_display}</text>\n'
+                        break  # Use tightest aspect match
+
+        # Grid outer border
+        svg += f'<rect x="{ox}" y="{oy}" width="{num_planets * cell_size}" height="{num_planets * cell_size}" '
+        svg += f'fill="none" stroke="#4a4a6a" stroke-width="2"/>\n'
+
+        # Legend
+        legend_y = oy + num_planets * cell_size + 20
+        legend_x = padding + 10
+        for i, (_, _, symbol, color, label) in enumerate(aspect_defs):
+            lx = legend_x + i * 130
+            svg += f'<text class="aspect-symbol" x="{lx}" y="{legend_y}" fill="{color}" style="text-anchor: start;">{symbol}</text>\n'
+            svg += f'<text class="legend-text" x="{lx + 18}" y="{legend_y}">{label}</text>\n'
+
+        svg += "</svg>"
+        return svg
+
     def save_chart(self, svg_content: str, filename: str) -> str:
         """Save SVG chart to file."""
         if not filename.endswith('.svg'):
@@ -372,10 +561,11 @@ class AstrologicalChartGenerator:
 
         return filename
 
-def create_chart_for_planets(planets_dict: Dict[str, any], title: str, output_dir: str = "") -> str:
+def create_chart_for_planets(planets_dict: Dict[str, any], title: str, output_dir: str = "",
+                             ascendant: float = None) -> str:
     """Helper function to create chart from planets dictionary."""
     generator = AstrologicalChartGenerator()
-    svg_content = generator.generate_chart(planets_dict, title)
+    svg_content = generator.generate_chart(planets_dict, title, ascendant=ascendant)
 
     # Create filename
     safe_title = "".join(c for c in title if c.isalnum() or c in (' ', '-', '_')).rstrip()
@@ -386,6 +576,24 @@ def create_chart_for_planets(planets_dict: Dict[str, any], title: str, output_di
         filename = os.path.join(output_dir, filename)
 
     return generator.save_chart(svg_content, filename)
+
+def create_aspect_grid(natal_planets: Dict[str, any], transit_planets: Dict[str, any],
+                       aspects_data: Dict[str, list] = None,
+                       title: str = "Natal-Transit Aspect Grid",
+                       output_dir: str = "") -> str:
+    """Helper function to create an aspect grid SVG from natal and transit planet dicts."""
+    generator = AstrologicalChartGenerator()
+    svg_content = generator.generate_aspect_grid(natal_planets, transit_planets, aspects_data, title)
+
+    safe_title = "".join(c for c in title if c.isalnum() or c in (' ', '-', '_')).rstrip()
+    safe_title = safe_title.replace(' ', '_')
+    filename = f"{safe_title.lower()}_grid.svg"
+
+    if output_dir:
+        filename = os.path.join(output_dir, filename)
+
+    return generator.save_chart(svg_content, filename)
+
 
 if __name__ == "__main__":
     # Test chart generation

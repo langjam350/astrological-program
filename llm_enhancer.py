@@ -184,6 +184,46 @@ Enhanced Summary:"""
             print(f"  ❌ LLM enhancement failed for weekly summary: {e}")
             return technical_summary
 
+    def enhance_aspect_summary(self, aspect_list_text: str, day_name: str, date_str: str) -> Optional[str]:
+        """Generate a brief narrative summary of natal-transit aspects for a given day.
+
+        Args:
+            aspect_list_text: Formatted text listing all natal-transit aspects with orbs
+            day_name: Day of the week (e.g. "Tuesday")
+            date_str: Formatted date string (e.g. "March 24, 2026")
+
+        Returns:
+            A narrative summary string, or None if LLM is unavailable/fails.
+        """
+        if not self.is_available():
+            return None
+
+        prompt = f"""You are a knowledgeable astrologer. Below is a list of all active natal-transit aspects for {day_name}, {date_str}. Write a brief, insightful summary (3-5 paragraphs) that:
+
+1. Highlights the most significant aspects and what they mean in practical terms
+2. Describes the overall energetic tone of the day
+3. Notes any tensions or opportunities created by challenging vs harmonious aspects
+4. Gives actionable guidance for navigating the day
+5. Uses warm but concise language — no fluff
+
+Active Natal-Transit Aspects:
+{aspect_list_text}
+
+Aspect Summary:"""
+
+        try:
+            print(f"  🤖 Generating aspect summary for {day_name}...")
+            response = self._call_llm(prompt)
+            if response and len(response.strip()) > 50:
+                print(f"  ✅ Aspect summary complete for {day_name}")
+                return response.strip()
+            else:
+                print(f"  ⚠️  Aspect summary too short for {day_name}, skipping")
+                return None
+        except Exception as e:
+            print(f"  ❌ Aspect summary failed for {day_name}: {e}")
+            return None
+
     def _call_llm(self, prompt: str) -> Optional[str]:
         """Route LLM call to the appropriate provider."""
         if self.provider_name == "local":

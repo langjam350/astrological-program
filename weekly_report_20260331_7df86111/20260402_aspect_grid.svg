@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="670" height="800" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .grid-bg { fill: #1a1a2e; }
+    .cell-border { stroke: #2a2a4e; stroke-width: 1; fill: none; }
+    .cell-bg { fill: #1a1a2e; }
+    .cell-bg-alt { fill: #1f1f35; }
+    .header-text { font-family: Arial, sans-serif; font-size: 18px; text-anchor: middle; dominant-baseline: central; }
+    .header-label { fill: #aaaaaa; font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; dominant-baseline: central; }
+    .aspect-symbol { font-family: Arial, sans-serif; font-size: 16px; text-anchor: middle; dominant-baseline: central; font-weight: bold; }
+    .orb-text { fill: #aaaaaa; font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; dominant-baseline: central; }
+    .title { fill: #ffffff; font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; }
+    .axis-label { fill: #888888; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; text-anchor: middle; }
+    .legend-text { fill: #cccccc; font-family: Arial, sans-serif; font-size: 11px; dominant-baseline: central; }
+</style>
+
+<!-- Background -->
+<rect class="grid-bg" width="670" height="800"/>
+
+<text class="title" x="335.0" y="50">Natal-Transit Aspect Grid - Thursday, April 02, 2026</text>
+<text class="axis-label" x="380.0" y="88">NATAL</text>
+<text class="axis-label" x="40" y="430.0" transform="rotate(-90, 40, 430.0)">TRANSIT</text>
+<text class="header-text" x="146.0" y="131.0" fill="#FFD700">☉</text>
+<text class="header-label" x="146.0" y="147.0">Sun</text>
+<text class="header-text" x="198.0" y="131.0" fill="#C0C0C0">☽</text>
+<text class="header-label" x="198.0" y="147.0">Moo</text>
+<text class="header-text" x="250.0" y="131.0" fill="#FFA500">☿</text>
+<text class="header-label" x="250.0" y="147.0">Mer</text>
+<text class="header-text" x="302.0" y="131.0" fill="#90EE90">♀</text>
+<text class="header-label" x="302.0" y="147.0">Ven</text>
+<text class="header-text" x="354.0" y="131.0" fill="#FF6347">♂</text>
+<text class="header-label" x="354.0" y="147.0">Mar</text>
+<text class="header-text" x="406.0" y="131.0" fill="#4169E1">♃</text>
+<text class="header-label" x="406.0" y="147.0">Jup</text>
+<text class="header-text" x="458.0" y="131.0" fill="#8B4513">♄</text>
+<text class="header-label" x="458.0" y="147.0">Sat</text>
+<text class="header-text" x="510.0" y="131.0" fill="#40E0D0">♅</text>
+<text class="header-label" x="510.0" y="147.0">Ura</text>
+<text class="header-text" x="562.0" y="131.0" fill="#4682B4">♆</text>
+<text class="header-label" x="562.0" y="147.0">Nep</text>
+<text class="header-text" x="614.0" y="131.0" fill="#800080">♇</text>
+<text class="header-label" x="614.0" y="147.0">Plu</text>
+<text class="header-text" x="60.0" y="196.0" fill="#FFD700">☉</text>
+<text class="header-label" x="90.0" y="196.0">Sun</text>
+<text class="header-text" x="60.0" y="248.0" fill="#C0C0C0">☽</text>
+<text class="header-label" x="90.0" y="248.0">Moo</text>
+<text class="header-text" x="60.0" y="300.0" fill="#FFA500">☿</text>
+<text class="header-label" x="90.0" y="300.0">Mer</text>
+<text class="header-text" x="60.0" y="352.0" fill="#90EE90">♀</text>
+<text class="header-label" x="90.0" y="352.0">Ven</text>
+<text class="header-text" x="60.0" y="404.0" fill="#FF6347">♂</text>
+<text class="header-label" x="90.0" y="404.0">Mar</text>
+<text class="header-text" x="60.0" y="456.0" fill="#4169E1">♃</text>
+<text class="header-label" x="90.0" y="456.0">Jup</text>
+<text class="header-text" x="60.0" y="508.0" fill="#8B4513">♄</text>
+<text class="header-label" x="90.0" y="508.0">Sat</text>
+<text class="header-text" x="60.0" y="560.0" fill="#40E0D0">♅</text>
+<text class="header-label" x="90.0" y="560.0">Ura</text>
+<text class="header-text" x="60.0" y="612.0" fill="#4682B4">♆</text>
+<text class="header-label" x="90.0" y="612.0">Nep</text>
+<text class="header-text" x="60.0" y="664.0" fill="#800080">♇</text>
+<text class="header-label" x="90.0" y="664.0">Plu</text>
+<rect class="cell-bg-alt" x="120" y="170" width="52" height="52"/>
+<rect class="cell-border" x="120" y="170" width="52" height="52"/>
+<rect class="cell-bg" x="172" y="170" width="52" height="52"/>
+<rect class="cell-border" x="172" y="170" width="52" height="52"/>
+<rect class="cell-bg-alt" x="224" y="170" width="52" height="52"/>
+<rect class="cell-border" x="224" y="170" width="52" height="52"/>
+<rect class="cell-bg" x="276" y="170" width="52" height="52"/>
+<rect class="cell-border" x="276" y="170" width="52" height="52"/>
+<text class="aspect-symbol" x="302.0" y="190.0" fill="#ff6b6b">☌</text>
+<text class="orb-text" x="302.0" y="206.0">1°</text>
+<rect class="cell-bg-alt" x="328" y="170" width="52" height="52"/>
+<rect class="cell-border" x="328" y="170" width="52" height="52"/>
+<rect class="cell-bg" x="380" y="170" width="52" height="52"/>
+<rect class="cell-border" x="380" y="170" width="52" height="52"/>
+<text class="aspect-symbol" x="406.0" y="190.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="406.0" y="206.0">3°</text>
+<rect class="cell-bg-alt" x="432" y="170" width="52" height="52"/>
+<rect class="cell-border" x="432" y="170" width="52" height="52"/>
+<rect class="cell-bg" x="484" y="170" width="52" height="52"/>
+<rect class="cell-border" x="484" y="170" width="52" height="52"/>
+<text class="aspect-symbol" x="510.0" y="190.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="510.0" y="206.0">3°</text>
+<rect class="cell-bg-alt" x="536" y="170" width="52" height="52"/>
+<rect class="cell-border" x="536" y="170" width="52" height="52"/>
+<text class="aspect-symbol" x="562.0" y="190.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="562.0" y="206.0">2°</text>
+<rect class="cell-bg" x="588" y="170" width="52" height="52"/>
+<rect class="cell-border" x="588" y="170" width="52" height="52"/>
+<rect class="cell-bg" x="120" y="222" width="52" height="52"/>
+<rect class="cell-border" x="120" y="222" width="52" height="52"/>
+<rect class="cell-bg-alt" x="172" y="222" width="52" height="52"/>
+<rect class="cell-border" x="172" y="222" width="52" height="52"/>
+<rect class="cell-bg" x="224" y="222" width="52" height="52"/>
+<rect class="cell-border" x="224" y="222" width="52" height="52"/>
+<rect class="cell-bg-alt" x="276" y="222" width="52" height="52"/>
+<rect class="cell-border" x="276" y="222" width="52" height="52"/>
+<text class="aspect-symbol" x="302.0" y="242.0" fill="#fd79a8">☍</text>
+<text class="orb-text" x="302.0" y="258.0">4°</text>
+<rect class="cell-bg" x="328" y="222" width="52" height="52"/>
+<rect class="cell-border" x="328" y="222" width="52" height="52"/>
+<rect class="cell-bg-alt" x="380" y="222" width="52" height="52"/>
+<rect class="cell-border" x="380" y="222" width="52" height="52"/>
+<text class="aspect-symbol" x="406.0" y="242.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="406.0" y="258.0">7°</text>
+<rect class="cell-bg" x="432" y="222" width="52" height="52"/>
+<rect class="cell-border" x="432" y="222" width="52" height="52"/>
+<rect class="cell-bg-alt" x="484" y="222" width="52" height="52"/>
+<rect class="cell-border" x="484" y="222" width="52" height="52"/>
+<text class="aspect-symbol" x="510.0" y="242.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="510.0" y="258.0">8°</text>
+<rect class="cell-bg" x="536" y="222" width="52" height="52"/>
+<rect class="cell-border" x="536" y="222" width="52" height="52"/>
+<text class="aspect-symbol" x="562.0" y="242.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="562.0" y="258.0">3°</text>
+<rect class="cell-bg-alt" x="588" y="222" width="52" height="52"/>
+<rect class="cell-border" x="588" y="222" width="52" height="52"/>
+<rect class="cell-bg-alt" x="120" y="274" width="52" height="52"/>
+<rect class="cell-border" x="120" y="274" width="52" height="52"/>
+<rect class="cell-bg" x="172" y="274" width="52" height="52"/>
+<rect class="cell-border" x="172" y="274" width="52" height="52"/>
+<rect class="cell-bg-alt" x="224" y="274" width="52" height="52"/>
+<rect class="cell-border" x="224" y="274" width="52" height="52"/>
+<rect class="cell-bg" x="276" y="274" width="52" height="52"/>
+<rect class="cell-border" x="276" y="274" width="52" height="52"/>
+<rect class="cell-bg-alt" x="328" y="274" width="52" height="52"/>
+<rect class="cell-border" x="328" y="274" width="52" height="52"/>
+<text class="aspect-symbol" x="354.0" y="294.0" fill="#ff6b6b">☌</text>
+<text class="orb-text" x="354.0" y="310.0">4°</text>
+<rect class="cell-bg" x="380" y="274" width="52" height="52"/>
+<rect class="cell-border" x="380" y="274" width="52" height="52"/>
+<text class="aspect-symbol" x="406.0" y="294.0" fill="#6c5ce7">△</text>
+<text class="orb-text" x="406.0" y="310.0">5°</text>
+<rect class="cell-bg-alt" x="432" y="274" width="52" height="52"/>
+<rect class="cell-border" x="432" y="274" width="52" height="52"/>
+<rect class="cell-bg" x="484" y="274" width="52" height="52"/>
+<rect class="cell-border" x="484" y="274" width="52" height="52"/>
+<text class="aspect-symbol" x="510.0" y="294.0" fill="#4ecdc4">✱</text>
+<text class="orb-text" x="510.0" y="310.0">5°</text>
+<rect class="cell-bg-alt" x="536" y="274" width="52" height="52"/>
+<rect class="cell-border" x="536" y="274" width="52" height="52"/>
+<text class="aspect-symbol" x="562.0" y="294.0" fill="#4ecdc4">✱</text>
+<text class="orb-text" x="562.0" y="310.0">0°</text>
+<rect class="cell-bg" x="588" y="274" width="52" height="52"/>
+<rect class="cell-border" x="588" y="274" width="52" height="52"/>
+<text class="aspect-symbol" x="614.0" y="294.0" fill="#6c5ce7">△</text>
+<text class="orb-text" x="614.0" y="310.0">2°</text>
+<rect class="cell-bg" x="120" y="326" width="52" height="52"/>
+<rect class="cell-border" x="120" y="326" width="52" height="52"/>
+<rect class="cell-bg-alt" x="172" y="326" width="52" height="52"/>
+<rect class="cell-border" x="172" y="326" width="52" height="52"/>
+<text class="aspect-symbol" x="198.0" y="346.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="198.0" y="362.0">5°</text>
+<rect class="cell-bg" x="224" y="326" width="52" height="52"/>
+<rect class="cell-border" x="224" y="326" width="52" height="52"/>
+<text class="aspect-symbol" x="250.0" y="346.0" fill="#ff6b6b">☌</text>
+<text class="orb-text" x="250.0" y="362.0">5°</text>
+<rect class="cell-bg-alt" x="276" y="326" width="52" height="52"/>
+<rect class="cell-border" x="276" y="326" width="52" height="52"/>
+<rect class="cell-bg" x="328" y="326" width="52" height="52"/>
+<rect class="cell-border" x="328" y="326" width="52" height="52"/>
+<rect class="cell-bg-alt" x="380" y="326" width="52" height="52"/>
+<rect class="cell-border" x="380" y="326" width="52" height="52"/>
+<rect class="cell-bg" x="432" y="326" width="52" height="52"/>
+<rect class="cell-border" x="432" y="326" width="52" height="52"/>
+<text class="aspect-symbol" x="458.0" y="346.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="458.0" y="362.0">8°</text>
+<rect class="cell-bg-alt" x="484" y="326" width="52" height="52"/>
+<rect class="cell-border" x="484" y="326" width="52" height="52"/>
+<text class="aspect-symbol" x="510.0" y="346.0" fill="#6c5ce7">△</text>
+<text class="orb-text" x="510.0" y="362.0">6°</text>
+<rect class="cell-bg" x="536" y="326" width="52" height="52"/>
+<rect class="cell-border" x="536" y="326" width="52" height="52"/>
+<rect class="cell-bg-alt" x="588" y="326" width="52" height="52"/>
+<rect class="cell-border" x="588" y="326" width="52" height="52"/>
+<rect class="cell-bg-alt" x="120" y="378" width="52" height="52"/>
+<rect class="cell-border" x="120" y="378" width="52" height="52"/>
+<text class="aspect-symbol" x="146.0" y="398.0" fill="#4ecdc4">✱</text>
+<text class="orb-text" x="146.0" y="414.0">1°</text>
+<rect class="cell-bg" x="172" y="378" width="52" height="52"/>
+<rect class="cell-border" x="172" y="378" width="52" height="52"/>
+<text class="aspect-symbol" x="198.0" y="398.0" fill="#4ecdc4">✱</text>
+<text class="orb-text" x="198.0" y="414.0">5°</text>
+<rect class="cell-bg-alt" x="224" y="378" width="52" height="52"/>
+<rect class="cell-border" x="224" y="378" width="52" height="52"/>
+<rect class="cell-bg" x="276" y="378" width="52" height="52"/>
+<rect class="cell-border" x="276" y="378" width="52" height="52"/>
+<rect class="cell-bg-alt" x="328" y="378" width="52" height="52"/>
+<rect class="cell-border" x="328" y="378" width="52" height="52"/>
+<text class="aspect-symbol" x="354.0" y="398.0" fill="#ff6b6b">☌</text>
+<text class="orb-text" x="354.0" y="414.0">5°</text>
+<rect class="cell-bg" x="380" y="378" width="52" height="52"/>
+<rect class="cell-border" x="380" y="378" width="52" height="52"/>
+<rect class="cell-bg-alt" x="432" y="378" width="52" height="52"/>
+<rect class="cell-border" x="432" y="378" width="52" height="52"/>
+<text class="aspect-symbol" x="458.0" y="398.0" fill="#4ecdc4">✱</text>
+<text class="orb-text" x="458.0" y="414.0">1°</text>
+<rect class="cell-bg" x="484" y="378" width="52" height="52"/>
+<rect class="cell-border" x="484" y="378" width="52" height="52"/>
+<rect class="cell-bg-alt" x="536" y="378" width="52" height="52"/>
+<rect class="cell-border" x="536" y="378" width="52" height="52"/>
+<rect class="cell-bg" x="588" y="378" width="52" height="52"/>
+<rect class="cell-border" x="588" y="378" width="52" height="52"/>
+<text class="aspect-symbol" x="614.0" y="398.0" fill="#6c5ce7">△</text>
+<text class="orb-text" x="614.0" y="414.0">8°</text>
+<rect class="cell-bg" x="120" y="430" width="52" height="52"/>
+<rect class="cell-border" x="120" y="430" width="52" height="52"/>
+<rect class="cell-bg-alt" x="172" y="430" width="52" height="52"/>
+<rect class="cell-border" x="172" y="430" width="52" height="52"/>
+<rect class="cell-bg" x="224" y="430" width="52" height="52"/>
+<rect class="cell-border" x="224" y="430" width="52" height="52"/>
+<rect class="cell-bg-alt" x="276" y="430" width="52" height="52"/>
+<rect class="cell-border" x="276" y="430" width="52" height="52"/>
+<text class="aspect-symbol" x="302.0" y="450.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="302.0" y="466.0">2°</text>
+<rect class="cell-bg" x="328" y="430" width="52" height="52"/>
+<rect class="cell-border" x="328" y="430" width="52" height="52"/>
+<text class="aspect-symbol" x="354.0" y="450.0" fill="#6c5ce7">△</text>
+<text class="orb-text" x="354.0" y="466.0">3°</text>
+<rect class="cell-bg-alt" x="380" y="430" width="52" height="52"/>
+<rect class="cell-border" x="380" y="430" width="52" height="52"/>
+<text class="aspect-symbol" x="406.0" y="450.0" fill="#ff6b6b">☌</text>
+<text class="orb-text" x="406.0" y="466.0">6°</text>
+<rect class="cell-bg" x="432" y="430" width="52" height="52"/>
+<rect class="cell-border" x="432" y="430" width="52" height="52"/>
+<rect class="cell-bg-alt" x="484" y="430" width="52" height="52"/>
+<rect class="cell-border" x="484" y="430" width="52" height="52"/>
+<text class="aspect-symbol" x="510.0" y="450.0" fill="#fd79a8">☍</text>
+<text class="orb-text" x="510.0" y="466.0">6°</text>
+<rect class="cell-bg" x="536" y="430" width="52" height="52"/>
+<rect class="cell-border" x="536" y="430" width="52" height="52"/>
+<text class="aspect-symbol" x="562.0" y="450.0" fill="#fd79a8">☍</text>
+<text class="orb-text" x="562.0" y="466.0">1°</text>
+<rect class="cell-bg-alt" x="588" y="430" width="52" height="52"/>
+<rect class="cell-border" x="588" y="430" width="52" height="52"/>
+<text class="aspect-symbol" x="614.0" y="450.0" fill="#6c5ce7">△</text>
+<text class="orb-text" x="614.0" y="466.0">1°</text>
+<rect class="cell-bg-alt" x="120" y="482" width="52" height="52"/>
+<rect class="cell-border" x="120" y="482" width="52" height="52"/>
+<rect class="cell-bg" x="172" y="482" width="52" height="52"/>
+<rect class="cell-border" x="172" y="482" width="52" height="52"/>
+<rect class="cell-bg-alt" x="224" y="482" width="52" height="52"/>
+<rect class="cell-border" x="224" y="482" width="52" height="52"/>
+<rect class="cell-bg" x="276" y="482" width="52" height="52"/>
+<rect class="cell-border" x="276" y="482" width="52" height="52"/>
+<text class="aspect-symbol" x="302.0" y="502.0" fill="#ff6b6b">☌</text>
+<text class="orb-text" x="302.0" y="518.0">8°</text>
+<rect class="cell-bg-alt" x="328" y="482" width="52" height="52"/>
+<rect class="cell-border" x="328" y="482" width="52" height="52"/>
+<rect class="cell-bg" x="380" y="482" width="52" height="52"/>
+<rect class="cell-border" x="380" y="482" width="52" height="52"/>
+<text class="aspect-symbol" x="406.0" y="502.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="406.0" y="518.0">4°</text>
+<rect class="cell-bg-alt" x="432" y="482" width="52" height="52"/>
+<rect class="cell-border" x="432" y="482" width="52" height="52"/>
+<rect class="cell-bg" x="484" y="482" width="52" height="52"/>
+<rect class="cell-border" x="484" y="482" width="52" height="52"/>
+<text class="aspect-symbol" x="510.0" y="502.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="510.0" y="518.0">4°</text>
+<rect class="cell-bg-alt" x="536" y="482" width="52" height="52"/>
+<rect class="cell-border" x="536" y="482" width="52" height="52"/>
+<rect class="cell-bg" x="588" y="482" width="52" height="52"/>
+<rect class="cell-border" x="588" y="482" width="52" height="52"/>
+<rect class="cell-bg" x="120" y="534" width="52" height="52"/>
+<rect class="cell-border" x="120" y="534" width="52" height="52"/>
+<text class="aspect-symbol" x="146.0" y="554.0" fill="#ff6b6b">☌</text>
+<text class="orb-text" x="146.0" y="570.0">4°</text>
+<rect class="cell-bg-alt" x="172" y="534" width="52" height="52"/>
+<rect class="cell-border" x="172" y="534" width="52" height="52"/>
+<text class="aspect-symbol" x="198.0" y="554.0" fill="#6c5ce7">△</text>
+<text class="orb-text" x="198.0" y="570.0">0°</text>
+<rect class="cell-bg" x="224" y="534" width="52" height="52"/>
+<rect class="cell-border" x="224" y="534" width="52" height="52"/>
+<rect class="cell-bg-alt" x="276" y="534" width="52" height="52"/>
+<rect class="cell-border" x="276" y="534" width="52" height="52"/>
+<rect class="cell-bg" x="328" y="534" width="52" height="52"/>
+<rect class="cell-border" x="328" y="534" width="52" height="52"/>
+<rect class="cell-bg-alt" x="380" y="534" width="52" height="52"/>
+<rect class="cell-border" x="380" y="534" width="52" height="52"/>
+<rect class="cell-bg" x="432" y="534" width="52" height="52"/>
+<rect class="cell-border" x="432" y="534" width="52" height="52"/>
+<text class="aspect-symbol" x="458.0" y="554.0" fill="#6c5ce7">△</text>
+<text class="orb-text" x="458.0" y="570.0">3°</text>
+<rect class="cell-bg-alt" x="484" y="534" width="52" height="52"/>
+<rect class="cell-border" x="484" y="534" width="52" height="52"/>
+<rect class="cell-bg" x="536" y="534" width="52" height="52"/>
+<rect class="cell-border" x="536" y="534" width="52" height="52"/>
+<rect class="cell-bg-alt" x="588" y="534" width="52" height="52"/>
+<rect class="cell-border" x="588" y="534" width="52" height="52"/>
+<rect class="cell-bg-alt" x="120" y="586" width="52" height="52"/>
+<rect class="cell-border" x="120" y="586" width="52" height="52"/>
+<rect class="cell-bg" x="172" y="586" width="52" height="52"/>
+<rect class="cell-border" x="172" y="586" width="52" height="52"/>
+<text class="aspect-symbol" x="198.0" y="606.0" fill="#4ecdc4">✱</text>
+<text class="orb-text" x="198.0" y="622.0">3°</text>
+<rect class="cell-bg-alt" x="224" y="586" width="52" height="52"/>
+<rect class="cell-border" x="224" y="586" width="52" height="52"/>
+<rect class="cell-bg" x="276" y="586" width="52" height="52"/>
+<rect class="cell-border" x="276" y="586" width="52" height="52"/>
+<rect class="cell-bg-alt" x="328" y="586" width="52" height="52"/>
+<rect class="cell-border" x="328" y="586" width="52" height="52"/>
+<rect class="cell-bg" x="380" y="586" width="52" height="52"/>
+<rect class="cell-border" x="380" y="586" width="52" height="52"/>
+<text class="aspect-symbol" x="406.0" y="606.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="406.0" y="622.0">8°</text>
+<rect class="cell-bg-alt" x="432" y="586" width="52" height="52"/>
+<rect class="cell-border" x="432" y="586" width="52" height="52"/>
+<rect class="cell-bg" x="484" y="586" width="52" height="52"/>
+<rect class="cell-border" x="484" y="586" width="52" height="52"/>
+<text class="aspect-symbol" x="510.0" y="606.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="510.0" y="622.0">7°</text>
+<rect class="cell-bg-alt" x="536" y="586" width="52" height="52"/>
+<rect class="cell-border" x="536" y="586" width="52" height="52"/>
+<rect class="cell-bg" x="588" y="586" width="52" height="52"/>
+<rect class="cell-border" x="588" y="586" width="52" height="52"/>
+<rect class="cell-bg" x="120" y="638" width="52" height="52"/>
+<rect class="cell-border" x="120" y="638" width="52" height="52"/>
+<rect class="cell-bg-alt" x="172" y="638" width="52" height="52"/>
+<rect class="cell-border" x="172" y="638" width="52" height="52"/>
+<text class="aspect-symbol" x="198.0" y="658.0" fill="#ff6b6b">☌</text>
+<text class="orb-text" x="198.0" y="674.0">6°</text>
+<rect class="cell-bg" x="224" y="638" width="52" height="52"/>
+<rect class="cell-border" x="224" y="638" width="52" height="52"/>
+<text class="aspect-symbol" x="250.0" y="658.0" fill="#ff9f43">□</text>
+<text class="orb-text" x="250.0" y="674.0">3°</text>
+<rect class="cell-bg-alt" x="276" y="638" width="52" height="52"/>
+<rect class="cell-border" x="276" y="638" width="52" height="52"/>
+<rect class="cell-bg" x="328" y="638" width="52" height="52"/>
+<rect class="cell-border" x="328" y="638" width="52" height="52"/>
+<rect class="cell-bg-alt" x="380" y="638" width="52" height="52"/>
+<rect class="cell-border" x="380" y="638" width="52" height="52"/>
+<rect class="cell-bg" x="432" y="638" width="52" height="52"/>
+<rect class="cell-border" x="432" y="638" width="52" height="52"/>
+<rect class="cell-bg-alt" x="484" y="638" width="52" height="52"/>
+<rect class="cell-border" x="484" y="638" width="52" height="52"/>
+<rect class="cell-bg" x="536" y="638" width="52" height="52"/>
+<rect class="cell-border" x="536" y="638" width="52" height="52"/>
+<rect class="cell-bg-alt" x="588" y="638" width="52" height="52"/>
+<rect class="cell-border" x="588" y="638" width="52" height="52"/>
+<rect x="120" y="170" width="520" height="520" fill="none" stroke="#4a4a6a" stroke-width="2"/>
+<text class="aspect-symbol" x="40" y="710" fill="#ff6b6b" style="text-anchor: start;">☌</text>
+<text class="legend-text" x="58" y="710">Conjunction</text>
+<text class="aspect-symbol" x="170" y="710" fill="#4ecdc4" style="text-anchor: start;">✱</text>
+<text class="legend-text" x="188" y="710">Sextile</text>
+<text class="aspect-symbol" x="300" y="710" fill="#ff9f43" style="text-anchor: start;">□</text>
+<text class="legend-text" x="318" y="710">Square</text>
+<text class="aspect-symbol" x="430" y="710" fill="#6c5ce7" style="text-anchor: start;">△</text>
+<text class="legend-text" x="448" y="710">Trine</text>
+<text class="aspect-symbol" x="560" y="710" fill="#fd79a8" style="text-anchor: start;">☍</text>
+<text class="legend-text" x="578" y="710">Opposition</text>
+</svg>
