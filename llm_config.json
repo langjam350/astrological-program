@@ -17,7 +17,7 @@
     "claude": {
       "endpoint": "https://api.anthropic.com/v1/messages",
       "model": "claude-sonnet-4-20250514",
-      "api_key": "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"
+      "api_key": ""
     },
     "gemini": {
       "endpoint": "https://generativelanguage.googleapis.com/v1beta/models",
