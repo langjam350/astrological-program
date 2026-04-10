@@ -46,16 +46,16 @@ class AstrologicalChartGenerator:
         }
 
         self.planet_colors = {
-            'SUN': '#FFD700',
-            'MOON': '#C0C0C0',
-            'MERCURY': '#FFA500',
-            'VENUS': '#90EE90',
-            'MARS': '#FF6347',
-            'JUPITER': '#4169E1',
-            'SATURN': '#8B4513',
-            'URANUS': '#40E0D0',
-            'NEPTUNE': '#4682B4',
-            'PLUTO': '#800080'
+            'SUN': '#B8860B',
+            'MOON': '#707070',
+            'MERCURY': '#CC7000',
+            'VENUS': '#2E8B57',
+            'MARS': '#CC3300',
+            'JUPITER': '#2255BB',
+            'SATURN': '#6B3000',
+            'URANUS': '#008B8B',
+            'NEPTUNE': '#2B5F8B',
+            'PLUTO': '#6B006B'
         }
 
         # Zodiac signs
@@ -109,13 +109,13 @@ class AstrologicalChartGenerator:
         return f'''<?xml version="1.0" encoding="UTF-8"?>
 <svg width="{self.chart_size}" height="{self.chart_size + 180}" xmlns="http://www.w3.org/2000/svg">
 <style>
-    .chart-bg {{ fill: #1a1a2e; }}
-    .zodiac-line {{ stroke: #16213e; stroke-width: 2; fill: none; }}
-    .house-line {{ stroke: #4a4a6a; stroke-width: 1; fill: none; }}
-    .sign-text {{ fill: #ffffff; font-family: Arial, sans-serif; font-size: 20px; text-anchor: middle; dominant-baseline: central; }}
+    .chart-bg {{ fill: #ffffff; }}
+    .zodiac-line {{ stroke: #aaaaaa; stroke-width: 2; fill: none; }}
+    .house-line {{ stroke: #bbbbbb; stroke-width: 1; fill: none; }}
+    .sign-text {{ fill: #333333; font-family: Arial, sans-serif; font-size: 20px; text-anchor: middle; dominant-baseline: central; }}
     .planet-text {{ font-family: Arial, sans-serif; font-size: 18px; text-anchor: middle; dominant-baseline: central; }}
-    .title {{ fill: #ffffff; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; text-anchor: middle; }}
-    .legend {{ fill: #ffffff; font-family: Arial, sans-serif; font-size: 12px; }}
+    .title {{ fill: #111111; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; text-anchor: middle; }}
+    .legend {{ fill: #333333; font-family: Arial, sans-serif; font-size: 12px; }}
     .aspect-line {{ stroke: #888888; stroke-width: 1; opacity: 0.6; }}
 </style>
 
@@ -124,11 +124,11 @@ class AstrologicalChartGenerator:
 
 <!-- Outer circle -->
 <circle cx="{self.center}" cy="{self.center}" r="{self.outer_radius}"
-        fill="none" stroke="#16213e" stroke-width="3"/>
+        fill="none" stroke="#aaaaaa" stroke-width="3"/>
 
 <!-- Inner circle -->
 <circle cx="{self.center}" cy="{self.center}" r="{self.inner_radius}"
-        fill="none" stroke="#16213e" stroke-width="2"/>
+        fill="none" stroke="#aaaaaa" stroke-width="2"/>
 
 '''
 
@@ -198,7 +198,7 @@ class AstrologicalChartGenerator:
             text_y = self.center + house_text_radius * math.sin(text_angle_rad)
 
             house_num = i + 1
-            svg += f'<text class="sign-text" x="{text_x}" y="{text_y}" style="font-size: 14px; fill: #888888;">{house_num}</text>\n'
+            svg += f'<text class="sign-text" x="{text_x}" y="{text_y}" style="font-size: 14px; fill: #999999;">{house_num}</text>\n'
 
         return svg
 
@@ -234,7 +234,7 @@ class AstrologicalChartGenerator:
                 degree_x = self.center + degree_radius * math.cos(angle_rad)
                 degree_y = self.center + degree_radius * math.sin(angle_rad)
 
-                svg += f'<text x="{degree_x}" y="{degree_y}" style="fill: #cccccc; font-size: 10px; text-anchor: middle;">{degree_text}</text>\n'
+                svg += f'<text x="{degree_x}" y="{degree_y}" style="fill: #666666; font-size: 10px; text-anchor: middle;">{degree_text}</text>\n'
 
         return svg
 
@@ -299,7 +299,7 @@ class AstrologicalChartGenerator:
                     mid_y = (y1 + y2) / 2
 
                     # Add small background circle for readability
-                    svg += f'<circle cx="{mid_x}" cy="{mid_y}" r="8" fill="#1a1a2e" stroke="{aspect_color}" stroke-width="1" opacity="0.9"/>\n'
+                    svg += f'<circle cx="{mid_x}" cy="{mid_y}" r="8" fill="#ffffff" stroke="{aspect_color}" stroke-width="1" opacity="0.9"/>\n'
 
                     # Add aspect symbol
                     svg += f'<text x="{mid_x}" y="{mid_y}" fill="{aspect_color}" font-size="10" text-anchor="middle" dominant-baseline="central" font-weight="bold">{aspect_symbol}</text>\n'
@@ -345,7 +345,7 @@ class AstrologicalChartGenerator:
         for i in range(6):
             symbol = self.zodiac_signs[i]
             name = self.sign_names[i]
-            svg += f'<text class="legend" x="{x}" y="{y}" fill="#ffffff">{symbol} {name}</text>\n'
+            svg += f'<text class="legend" x="{x}" y="{y}" fill="#333333">{symbol} {name}</text>\n'
             x += 120
 
         # Second row of signs (6 signs)
@@ -354,7 +354,7 @@ class AstrologicalChartGenerator:
         for i in range(6, 12):
             symbol = self.zodiac_signs[i]
             name = self.sign_names[i]
-            svg += f'<text class="legend" x="{x}" y="{y}" fill="#ffffff">{symbol} {name}</text>\n'
+            svg += f'<text class="legend" x="{x}" y="{y}" fill="#333333">{symbol} {name}</text>\n'
             x += 120
 
         # Aspect legend
@@ -381,7 +381,7 @@ class AstrologicalChartGenerator:
 
         # Add note about aspect lines
         y += 25
-        svg += f'<text class="legend" x="20" y="{y}" style="font-size: 10px; fill: #cccccc;">Note: Solid lines = Harmonious aspects, Dashed lines = Challenging aspects</text>\n'
+        svg += f'<text class="legend" x="20" y="{y}" style="font-size: 10px; fill: #666666;">Note: Solid lines = Harmonious aspects, Dashed lines = Challenging aspects</text>\n'
 
         return svg
 
@@ -446,17 +446,17 @@ class AstrologicalChartGenerator:
         svg = f'''<?xml version="1.0" encoding="UTF-8"?>
 <svg width="{total_width}" height="{total_height}" xmlns="http://www.w3.org/2000/svg">
 <style>
-    .grid-bg {{ fill: #1a1a2e; }}
-    .cell-border {{ stroke: #2a2a4e; stroke-width: 1; fill: none; }}
-    .cell-bg {{ fill: #1a1a2e; }}
-    .cell-bg-alt {{ fill: #1f1f35; }}
+    .grid-bg {{ fill: #ffffff; }}
+    .cell-border {{ stroke: #cccccc; stroke-width: 1; fill: none; }}
+    .cell-bg {{ fill: #ffffff; }}
+    .cell-bg-alt {{ fill: #f5f5f5; }}
     .header-text {{ font-family: Arial, sans-serif; font-size: 18px; text-anchor: middle; dominant-baseline: central; }}
-    .header-label {{ fill: #aaaaaa; font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; dominant-baseline: central; }}
+    .header-label {{ fill: #555555; font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; dominant-baseline: central; }}
     .aspect-symbol {{ font-family: Arial, sans-serif; font-size: 16px; text-anchor: middle; dominant-baseline: central; font-weight: bold; }}
-    .orb-text {{ fill: #aaaaaa; font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; dominant-baseline: central; }}
-    .title {{ fill: #ffffff; font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; }}
-    .axis-label {{ fill: #888888; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; text-anchor: middle; }}
-    .legend-text {{ fill: #cccccc; font-family: Arial, sans-serif; font-size: 11px; dominant-baseline: central; }}
+    .orb-text {{ fill: #666666; font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; dominant-baseline: central; }}
+    .title {{ fill: #111111; font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; }}
+    .axis-label {{ fill: #555555; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; text-anchor: middle; }}
+    .legend-text {{ fill: #333333; font-family: Arial, sans-serif; font-size: 11px; dominant-baseline: central; }}
 </style>
 
 <!-- Background -->
@@ -538,7 +538,7 @@ class AstrologicalChartGenerator:
 
         # Grid outer border
         svg += f'<rect x="{ox}" y="{oy}" width="{num_planets * cell_size}" height="{num_planets * cell_size}" '
-        svg += f'fill="none" stroke="#4a4a6a" stroke-width="2"/>\n'
+        svg += f'fill="none" stroke="#999999" stroke-width="2"/>\n'
 
         # Legend
         legend_y = oy + num_planets * cell_size + 20

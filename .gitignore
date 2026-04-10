@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated report output
+MyReports/
+tosend/
+
+# Ephemeris data (large binary, downloaded on first run)
+de421.bsp
+
+# Private config with credentials/API keys
+email_config.json
+llm_config.json
+birth_config.json
+delivery_config.json
+ai_summary_config.json
+
+# Windows task scheduler XML export
+AstrologicalReportTask.xml
+
+# Temp Claude session files
+.claude/ralph-*.md

@@ -22,10 +22,10 @@ PLANET_SYMBOLS = {
 }
 
 PLANET_COLORS = {
-    'SUN': '#FFD700', 'MOON': '#C0C0C0', 'MERCURY': '#FFA500',
-    'VENUS': '#90EE90', 'MARS': '#FF6347', 'JUPITER': '#4169E1',
-    'SATURN': '#8B4513', 'URANUS': '#40E0D0', 'NEPTUNE': '#4682B4',
-    'PLUTO': '#800080',
+    'SUN': '#B8860B', 'MOON': '#707070', 'MERCURY': '#CC7000',
+    'VENUS': '#2E8B57', 'MARS': '#CC3300', 'JUPITER': '#2255BB',
+    'SATURN': '#6B3000', 'URANUS': '#008B8B', 'NEPTUNE': '#2B5F8B',
+    'PLUTO': '#6B006B',
 }
 
 ZODIAC_SYMBOLS = [
@@ -147,24 +147,24 @@ def generate_biwheel(natal_planets: Dict[str, object],
     svg = f'''<?xml version="1.0" encoding="UTF-8"?>
 <svg width="{size}" height="{total_height}" xmlns="http://www.w3.org/2000/svg">
 <style>
-    .bg {{ fill: #1a1a2e; }}
-    .ring {{ fill: none; stroke: #2a2a4e; }}
-    .zodiac-div {{ stroke: #3a3a5e; stroke-width: 1.5; }}
-    .sign-text {{ fill: #ffffff; font-family: Arial, sans-serif; font-size: 18px;
+    .bg {{ fill: #ffffff; }}
+    .ring {{ fill: none; stroke: #aaaaaa; }}
+    .zodiac-div {{ stroke: #999999; stroke-width: 1.5; }}
+    .sign-text {{ fill: #333333; font-family: Arial, sans-serif; font-size: 18px;
                   text-anchor: middle; dominant-baseline: central; }}
     .planet {{ font-family: Arial, sans-serif; font-size: 16px;
               text-anchor: middle; dominant-baseline: central; font-weight: bold; }}
     .planet-label {{ font-family: Arial, sans-serif; font-size: 9px;
-                     text-anchor: middle; dominant-baseline: central; fill: #aaaaaa; }}
+                     text-anchor: middle; dominant-baseline: central; fill: #555555; }}
     .degree-text {{ font-family: Arial, sans-serif; font-size: 8px;
-                    text-anchor: middle; dominant-baseline: central; fill: #888888; }}
-    .title {{ fill: #ffffff; font-family: Arial, sans-serif; font-size: 22px;
+                    text-anchor: middle; dominant-baseline: central; fill: #666666; }}
+    .title {{ fill: #111111; font-family: Arial, sans-serif; font-size: 22px;
               font-weight: bold; text-anchor: middle; }}
-    .ring-label {{ fill: #666666; font-family: Arial, sans-serif; font-size: 10px;
+    .ring-label {{ fill: #444444; font-family: Arial, sans-serif; font-size: 10px;
                    font-weight: bold; text-anchor: middle; dominant-baseline: central; }}
     .tick {{ stroke-width: 1; }}
     .aspect-line {{ stroke-width: 1.2; opacity: 0.7; }}
-    .legend {{ fill: #cccccc; font-family: Arial, sans-serif; font-size: 11px;
+    .legend {{ fill: #333333; font-family: Arial, sans-serif; font-size: 11px;
               dominant-baseline: central; }}
     .aspect-sym {{ font-family: Arial, sans-serif; font-size: 14px;
                    text-anchor: middle; dominant-baseline: central; font-weight: bold; }}
