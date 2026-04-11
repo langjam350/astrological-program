@@ -368,7 +368,8 @@ class AstrologicalCalculator:
     def calculate_chart(self, date_str: str, time_str: str, location: str) -> Tuple[Dict[str, Planet], List[Aspect]]:
         """Calculate complete astrological chart."""
         # Parse location (simplified - just for display)
-        city, state = location.split(';') if ';' in location else (location, "")
+        sep = '~' if '~' in location else (';' if ';' in location else None)
+        city, state = location.split(sep, 1) if sep else (location, "")
 
         # For simplicity, use approximate coordinates
         # Real implementation would have a city database
@@ -707,6 +708,42 @@ class WeeklyAnalyzer:
                 print(f"LLM initialization failed: {e}")
                 self.llm_enhancer = None
 
+    def generate_today_transits(self, birth_date: str, birth_time: str,
+                               birth_location: str, current_location: str) -> str:
+        """Generate today's transit chart SVG for embedding in daily summaries.
+
+        Writes today_transits_chart.svg to the current working directory.
+        Returns the chart file path, or None if chart generation is unavailable.
+        """
+        now = datetime.datetime.now()
+        today_str = now.strftime("%Y-%m-%d")
+        today_time = now.strftime("%H:%M")
+
+        # Birth chart (needed for ascendant)
+        birth_planets, _ = self.calculator.calculate_chart(birth_date, birth_time, birth_location)
+        birth_ascendant = getattr(self.calculator, 'last_ascendant', None)
+
+        # Today's planetary positions
+        daily_planets, _ = self.calculator.calculate_chart(today_str, today_time, current_location)
+
+        if not CHART_GENERATION_AVAILABLE:
+            print("Error: chart_generator is not installed. Cannot generate transit chart.")
+            return None
+
+        chart_file = create_chart_for_planets(
+            daily_planets,
+            f"Transit Chart \u2014 {now.strftime('%A, %B %d, %Y')}",
+            ".",
+            ascendant=birth_ascendant
+        )
+        final_chart = "today_transits_chart.svg"
+        if os.path.exists(chart_file) and chart_file != final_chart:
+            os.replace(chart_file, final_chart)
+            chart_file = final_chart
+
+        print(f"Transit chart saved: {chart_file}")
+        return chart_file
+
     def generate_weekly_reports(self, birth_date: str, birth_time: str,
                                birth_location: str, current_location: str) -> str:
         """Generate weekly astrological reports starting from today."""
@@ -764,7 +801,7 @@ class WeeklyAnalyzer:
                     new_chart_path = os.path.join(folder_name, new_chart_name)
 
                     if os.path.exists(daily_chart_file):
-                        os.rename(daily_chart_file, new_chart_path)
+                        os.replace(daily_chart_file, new_chart_path)
 
                 except Exception as e:
                     print(f"Daily chart generation failed for {date_str}: {e}")
@@ -782,7 +819,7 @@ class WeeklyAnalyzer:
                     new_grid_name = f"{date_str}_aspect_grid.svg"
                     new_grid_path = os.path.join(folder_name, new_grid_name)
                     if os.path.exists(grid_file):
-                        os.rename(grid_file, new_grid_path)
+                        os.replace(grid_file, new_grid_path)
                 except Exception as e:
                     print(f"Aspect grid generation failed for {date_str}: {e}")
 
@@ -799,7 +836,7 @@ class WeeklyAnalyzer:
                     new_biwheel_name = f"{date_str}_biwheel.svg"
                     new_biwheel_path = os.path.join(folder_name, new_biwheel_name)
                     if os.path.exists(biwheel_file):
-                        os.rename(biwheel_file, new_biwheel_path)
+                        os.replace(biwheel_file, new_biwheel_path)
                 except Exception as e:
                     print(f"Bi-wheel generation failed for {date_str}: {e}")
 
@@ -894,7 +931,7 @@ class WeeklyAnalyzer:
                 # Rename to consistent format
                 if os.path.exists(birth_chart_file):
                     birth_chart_new = os.path.join(folder_name, "birth_chart.svg")
-                    os.rename(birth_chart_file, birth_chart_new)
+                    os.replace(birth_chart_file, birth_chart_new)
                     print(f"Generated: birth_chart.svg")
 
             except Exception as e:
@@ -1364,9 +1401,10 @@ class WeeklyAnalyzer:
 def main():
     """Main program entry point."""
     if len(sys.argv) < 5:
-        print("Usage: python astrological_analyzer.py BIRTH_DATE BIRTH_TIME BIRTH_LOCATION CURRENT_LOCATION [AI_PROVIDER]")
-        print("Example: python astrological_analyzer.py 1990-05-15 14:30 'New York;NY' 'Los Angeles;CA' claude")
+        print("Usage: python astrological_analyzer.py BIRTH_DATE BIRTH_TIME BIRTH_LOCATION CURRENT_LOCATION [AI_PROVIDER] [MODE]")
+        print("Example: python astrological_analyzer.py 1990-05-15 14:30 'New York~NY' 'Los Angeles~CA' claude weekly")
         print("AI_PROVIDER options: local, openai, claude, gemini, none (default: from config)")
+        print("MODE options: weekly (default), transits, biwheel")
         sys.exit(1)
 
     birth_date = sys.argv[1]
@@ -1374,24 +1412,25 @@ def main():
     birth_location = sys.argv[3]
     current_location = sys.argv[4]
     ai_provider = sys.argv[5] if len(sys.argv) > 5 else None
+    report_mode = sys.argv[6] if len(sys.argv) > 6 else "weekly"
 
     try:
-        # Get current date and time
-        now = datetime.datetime.now()
-        current_date = now.strftime("%Y-%m-%d")
-        current_time = now.strftime("%H:%M")
-
-        # Initialize calculator and analyzer
         calculator = AstrologicalCalculator()
         analyzer = AstrologicalAnalyzer(calculator)
-
-        # Generate weekly reports
         weekly_analyzer = WeeklyAnalyzer(calculator, analyzer, ai_provider)
-        report_folder = weekly_analyzer.generate_weekly_reports(
-            birth_date, birth_time, birth_location, current_location
-        )
 
-        print(f"Weekly astrological reports generated in folder: {report_folder}")
+        if report_mode == "transits":
+            weekly_analyzer.generate_today_transits(
+                birth_date, birth_time, birth_location, current_location
+            )
+        elif report_mode == "biwheel":
+            print("Biwheel mode not yet implemented.")
+            sys.exit(1)
+        else:
+            report_folder = weekly_analyzer.generate_weekly_reports(
+                birth_date, birth_time, birth_location, current_location
+            )
+            print(f"Weekly astrological reports generated in folder: {report_folder}")
 
     except Exception as e:
         print(f"Error during analysis: {e}")

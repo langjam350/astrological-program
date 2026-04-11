@@ -85,11 +85,16 @@ class AstrologicalChartGenerator:
         # Add title
         svg_content += self._add_title(chart_title)
 
-        # Draw zodiac wheel
-        svg_content += self._draw_zodiac_wheel()
+        # Draw zodiac divider lines first (behind everything)
+        svg_content += self._draw_zodiac_dividers()
 
-        # Draw house lines based on ascendant
+        # Draw house lines on top of zodiac dividers but below sign symbols
+        # (lines extend to outer_radius so the full house boundary is visible
+        # through the zodiac ring, making it clear they differ from sign dividers)
         svg_content += self._draw_house_lines()
+
+        # Draw zodiac sign symbols on top so they are not obscured by house lines
+        svg_content += self._draw_zodiac_symbols()
 
         # Add planets
         svg_content += self._add_planets(planets)
@@ -137,30 +142,32 @@ class AstrologicalChartGenerator:
         return f'<text x="{self.center}" y="30" class="title">{title}</text>\n'
 
     def _draw_zodiac_wheel(self) -> str:
-        """Draw the zodiac wheel with signs."""
-        svg = ""
+        """Draw the zodiac wheel with signs (dividers and symbols together)."""
+        return self._draw_zodiac_dividers() + self._draw_zodiac_symbols()
 
+    def _draw_zodiac_dividers(self) -> str:
+        """Draw the zodiac sign division lines only (no symbols)."""
+        svg = ""
         for i in range(12):
-            # Calculate angle for this sign (starting from Aries at 0°)
             angle_deg = i * 30
             angle_rad = math.radians(angle_deg - 90)  # -90 to start at top
-
-            # Draw sign division line
             x1 = self.center + self.inner_radius * math.cos(angle_rad)
             y1 = self.center + self.inner_radius * math.sin(angle_rad)
             x2 = self.center + self.outer_radius * math.cos(angle_rad)
             y2 = self.center + self.outer_radius * math.sin(angle_rad)
-
             svg += f'<line class="zodiac-line" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}"/>\n'
+        return svg
 
-            # Add sign symbol
-            mid_angle_rad = math.radians((angle_deg + 15) - 90)  # Middle of sign
+    def _draw_zodiac_symbols(self) -> str:
+        """Draw the zodiac sign symbols only (no divider lines)."""
+        svg = ""
+        for i in range(12):
+            angle_deg = i * 30
+            mid_angle_rad = math.radians((angle_deg + 15) - 90)  # Middle of sign sector
             text_radius = (self.outer_radius + self.inner_radius) / 2
             text_x = self.center + text_radius * math.cos(mid_angle_rad)
             text_y = self.center + text_radius * math.sin(mid_angle_rad)
-
             svg += f'<text class="sign-text" x="{text_x}" y="{text_y}">{self.zodiac_signs[i]}</text>\n'
-
         return svg
 
     def _draw_house_lines(self) -> str:
@@ -177,8 +184,10 @@ class AstrologicalChartGenerator:
 
             x1 = self.center + self.house_radius * math.cos(angle_rad)
             y1 = self.center + self.house_radius * math.sin(angle_rad)
-            x2 = self.center + self.inner_radius * math.cos(angle_rad)
-            y2 = self.center + self.inner_radius * math.sin(angle_rad)
+            # Extend to outer_radius so the house cusp is visible through the
+            # zodiac ring and clearly distinct from the zodiac sign dividers.
+            x2 = self.center + self.outer_radius * math.cos(angle_rad)
+            y2 = self.center + self.outer_radius * math.sin(angle_rad)
 
             # Emphasize the Ascendant line (House 1 cusp)
             if i == 0 and self.ascendant is not None:
